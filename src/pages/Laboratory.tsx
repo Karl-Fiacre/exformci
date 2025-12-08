@@ -130,7 +130,7 @@ export const Laboratory: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-accent opacity-20 rounded-3xl blur-2xl group-hover:opacity-30 transition-opacity duration-500"></div>
                 <div className="relative overflow-hidden rounded-3xl">
                   <img
-                    src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800"
+                    src="/images/laboratory-hero.jpg"
                     alt="Laboratoire EXFORM"
                     className="w-full h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-700"
                   />

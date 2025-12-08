@@ -30,9 +30,11 @@ export const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center gap-4 group">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-2 border border-white/20">
-              <span className="text-2xl font-bold text-white">EXFORM</span>
-            </div>
+            <img 
+              src="/images/logo-exform.png" 
+              alt="EXFORM Logo" 
+              className="h-12 w-auto object-contain"
+            />
           </Link>
           <nav className="hidden lg:flex items-center space-x-1">
             {navigation.map((item) => (
