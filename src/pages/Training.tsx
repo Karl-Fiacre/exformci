@@ -3,117 +3,76 @@ import { GraduationCap, Users, Clock, Award, ArrowRight, CheckCircle } from 'luc
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-
 export const Training: React.FC = () => {
-  const { t } = useLanguage();
-
-  const trainings = [
-    {
-      title: t('training.vibration'),
-      duration: '3 jours',
-      level: 'Intermédiaire',
-      description: 'Formation complète sur l\'analyse vibratoire pour le diagnostic et la maintenance prédictive des équipements industriels.',
-      features: [
-        'Théorie des vibrations',
-        'Techniques de mesure',
-        'Analyse spectrale',
-        'Diagnostic des défauts',
-      ],
-    },
-    {
-      title: t('training.hydraulics'),
-      duration: '5 jours',
-      level: 'Tous niveaux',
-      description: 'Maîtrisez les systèmes hydrauliques industriels, de la conception à la maintenance en passant par la réparation.',
-      features: [
-        'Principes hydrauliques',
-        'Composants et circuits',
-        'Maintenance préventive',
-        'Dépannage pratique',
-      ],
-    },
-    {
-      title: t('training.ammonia'),
-      duration: '2 jours',
-      level: 'Spécialisé',
-      description: 'Formation spécialisée sur les risques liés à l\'ammoniac et les mesures de sécurité dans l\'industrie frigorifique.',
-      features: [
-        'Propriétés de l\'ammoniac',
-        'Procédures de sécurité',
-        'Équipements de protection',
-        'Gestion des urgences',
-      ],
-    },
-    {
-      title: t('training.filtration'),
-      duration: '3 jours',
-      level: 'Technique',
-      description: 'Apprenez les techniques de filtration d\'air pour l\'industrie et les environnements contrôlés.',
-      features: [
-        'Types de filtres',
-        'Dimensionnement',
-        'Installation et maintenance',
-        'Contrôle qualité air',
-      ],
-    },
-    {
-      title: t('training.pressure'),
-      duration: '4 jours',
-      level: 'Avancé',
-      description: 'Formation sur les équipements sous pression et autoclaves, réglementation et sécurité.',
-      features: [
-        'Réglementation ESP',
-        'Contrôles périodiques',
-        'Maintenance sécurisée',
-        'Certifications requises',
-      ],
-    },
-    {
-      title: t('training.management'),
-      duration: '2 jours',
-      level: 'Management',
-      description: 'Développez vos compétences managériales pour diriger efficacement vos équipes techniques.',
-      features: [
-        'Leadership technique',
-        'Gestion d\'équipe',
-        'Communication efficace',
-        'Résolution de conflits',
-      ],
-    },
-  ];
-
-  const advantages = [
-    {
-      icon: Users,
-      title: 'Formateurs Experts',
-      description: 'Nos formateurs sont des professionnels expérimentés avec une expertise terrain reconnue.',
-    },
-    {
-      icon: Award,
-      title: 'Certifications Reconnues',
-      description: 'Obtenez des certifications reconnues par l\'industrie et valorisez vos compétences.',
-    },
-    {
-      icon: Clock,
-      title: 'Flexibilité Horaire',
-      description: 'Formations adaptées à votre planning avec des sessions en journée ou en soirée.',
-    },
-    {
-      icon: CheckCircle,
-      title: 'Suivi Personnalisé',
-      description: 'Un accompagnement individualisé pour garantir votre progression et réussite.',
-    },
-  ];
-
-  return (
-    <div className="min-h-screen pt-20">
+  const {
+    t
+  } = useLanguage();
+  const trainings = [{
+    title: t('training.vibration'),
+    duration: '3 jours',
+    level: 'Intermédiaire',
+    description: 'Formation complète sur l\'analyse vibratoire pour le diagnostic et la maintenance prédictive des équipements industriels.',
+    features: ['Théorie des vibrations', 'Techniques de mesure', 'Analyse spectrale', 'Diagnostic des défauts']
+  }, {
+    title: t('training.hydraulics'),
+    duration: '5 jours',
+    level: 'Tous niveaux',
+    description: 'Maîtrisez les systèmes hydrauliques industriels, de la conception à la maintenance en passant par la réparation.',
+    features: ['Principes hydrauliques', 'Composants et circuits', 'Maintenance préventive', 'Dépannage pratique']
+  }, {
+    title: t('training.ammonia'),
+    duration: '2 jours',
+    level: 'Spécialisé',
+    description: 'Formation spécialisée sur les risques liés à l\'ammoniac et les mesures de sécurité dans l\'industrie frigorifique.',
+    features: ['Propriétés de l\'ammoniac', 'Procédures de sécurité', 'Équipements de protection', 'Gestion des urgences']
+  }, {
+    title: t('training.filtration'),
+    duration: '3 jours',
+    level: 'Technique',
+    description: 'Apprenez les techniques de filtration d\'air pour l\'industrie et les environnements contrôlés.',
+    features: ['Types de filtres', 'Dimensionnement', 'Installation et maintenance', 'Contrôle qualité air']
+  }, {
+    title: t('training.pressure'),
+    duration: '4 jours',
+    level: 'Avancé',
+    description: 'Formation sur les équipements sous pression et autoclaves, réglementation et sécurité.',
+    features: ['Réglementation ESP', 'Contrôles périodiques', 'Maintenance sécurisée', 'Certifications requises']
+  }, {
+    title: t('training.management'),
+    duration: '2 jours',
+    level: 'Management',
+    description: 'Développez vos compétences managériales pour diriger efficacement vos équipes techniques.',
+    features: ['Leadership technique', 'Gestion d\'équipe', 'Communication efficace', 'Résolution de conflits']
+  }];
+  const advantages = [{
+    icon: Users,
+    title: 'Formateurs Experts',
+    description: 'Nos formateurs sont des professionnels expérimentés avec une expertise terrain reconnue.'
+  }, {
+    icon: Award,
+    title: 'Certifications Reconnues',
+    description: 'Obtenez des certifications reconnues par l\'industrie et valorisez vos compétences.'
+  }, {
+    icon: Clock,
+    title: 'Flexibilité Horaire',
+    description: 'Formations adaptées à votre planning avec des sessions en journée ou en soirée.'
+  }, {
+    icon: CheckCircle,
+    title: 'Suivi Personnalisé',
+    description: 'Un accompagnement individualisé pour garantir votre progression et réussite.'
+  }];
+  return <div className="min-h-screen pt-20">
       {/* Hero Section */}
       <section className="py-20 hero-background-training text-foreground relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern-dots opacity-20"></div>
         <div className="absolute inset-0 bg-pattern-grid opacity-15"></div>
         <div className="absolute top-20 left-10 w-32 h-32 bg-accent/20 rounded-full blur-xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-primary/20 rounded-full blur-xl animate-float" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/3 left-1/4 w-20 h-20 bg-accent/25 rounded-full blur-md animate-float" style={{animationDelay: '2.5s'}}></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-primary/20 rounded-full blur-xl animate-float" style={{
+        animationDelay: '1s'
+      }}></div>
+        <div className="absolute top-1/3 left-1/4 w-20 h-20 bg-accent/25 rounded-full blur-md animate-float" style={{
+        animationDelay: '2.5s'
+      }}></div>
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="animate-fade-in">
@@ -158,11 +117,7 @@ export const Training: React.FC = () => {
 
             <div className="fade-in">
               <div className="relative">
-                <img
-                  src="/images/training-hero.jpg"
-                  alt="Formation EXFORM"
-                  className="w-full h-96 object-cover rounded-2xl shadow-lg"
-                />
+                <img alt="Formation EXFORM" className="w-full h-96 object-cover rounded-2xl shadow-lg" src="/lovable-uploads/6152f8a4-f940-40c3-9c06-1dfa59cd9ff1.jpg" />
                 <div className="absolute inset-0 gradient-hero opacity-10 rounded-2xl"></div>
               </div>
             </div>
@@ -183,8 +138,9 @@ export const Training: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {trainings.map((training, index) => (
-              <div key={index} className="glass-card p-8 rounded-3xl hover:glow-effect transform hover:scale-105 transition-all duration-700 group bounce-in animate-shimmer" style={{animationDelay: `${index * 0.15}s`}}>
+            {trainings.map((training, index) => <div key={index} className="glass-card p-8 rounded-3xl hover:glow-effect transform hover:scale-105 transition-all duration-700 group bounce-in animate-shimmer" style={{
+            animationDelay: `${index * 0.15}s`
+          }}>
                 <div className="flex items-center justify-between mb-6">
                   <span className="px-4 py-2 bg-gradient-accent text-white text-sm font-medium rounded-full shadow-lg animate-pulse">
                     {training.level}
@@ -203,12 +159,12 @@ export const Training: React.FC = () => {
                 </p>
 
                 <div className="space-y-3 mb-8">
-                  {training.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center space-x-3 p-3 rounded-xl hover:bg-accent/5 transition-all duration-300 animate-in slide-in-from-left-2" style={{animationDelay: `${(index * 4 + featureIndex) * 0.1}s`}}>
+                  {training.features.map((feature, featureIndex) => <div key={featureIndex} className="flex items-center space-x-3 p-3 rounded-xl hover:bg-accent/5 transition-all duration-300 animate-in slide-in-from-left-2" style={{
+                animationDelay: `${(index * 4 + featureIndex) * 0.1}s`
+              }}>
                       <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 animate-pulse" />
                       <span className="text-sm text-foreground font-medium">{feature}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
 
                 <Link to="/register">
@@ -217,8 +173,7 @@ export const Training: React.FC = () => {
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -236,8 +191,9 @@ export const Training: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {advantages.map((advantage, index) => (
-              <div key={index} className="text-center fade-in" style={{animationDelay: `${index * 0.1}s`}}>
+            {advantages.map((advantage, index) => <div key={index} className="text-center fade-in" style={{
+            animationDelay: `${index * 0.1}s`
+          }}>
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 rounded-2xl mb-6">
                   <advantage.icon className="h-8 w-8 text-accent" />
                 </div>
@@ -247,8 +203,7 @@ export const Training: React.FC = () => {
                 <p className="text-body text-muted-foreground">
                   {advantage.description}
                 </p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -266,13 +221,25 @@ export const Training: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              { step: '01', title: 'Inscription', description: 'Choisissez votre formation et inscrivez-vous en ligne' },
-              { step: '02', title: 'Évaluation', description: 'Évaluation de votre niveau pour adapter le programme' },
-              { step: '03', title: 'Formation', description: 'Sessions théoriques et pratiques avec nos experts' },
-              { step: '04', title: 'Certification', description: 'Examen final et remise de votre certification' },
-            ].map((process, index) => (
-              <div key={index} className="text-center fade-in" style={{animationDelay: `${index * 0.1}s`}}>
+            {[{
+            step: '01',
+            title: 'Inscription',
+            description: 'Choisissez votre formation et inscrivez-vous en ligne'
+          }, {
+            step: '02',
+            title: 'Évaluation',
+            description: 'Évaluation de votre niveau pour adapter le programme'
+          }, {
+            step: '03',
+            title: 'Formation',
+            description: 'Sessions théoriques et pratiques avec nos experts'
+          }, {
+            step: '04',
+            title: 'Certification',
+            description: 'Examen final et remise de votre certification'
+          }].map((process, index) => <div key={index} className="text-center fade-in" style={{
+            animationDelay: `${index * 0.1}s`
+          }}>
                 <div className="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
                   {process.step}
                 </div>
@@ -282,8 +249,7 @@ export const Training: React.FC = () => {
                 <p className="text-body text-muted-foreground">
                   {process.description}
                 </p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -312,6 +278,5 @@ export const Training: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
