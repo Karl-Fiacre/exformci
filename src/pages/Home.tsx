@@ -92,7 +92,7 @@ export const Home: React.FC = () => {
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg rounded-xl font-semibold backdrop-blur-sm transition-all duration-300">
+                <Button className="bg-white/20 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg rounded-xl font-semibold transition-all duration-300">
                   {t('nav.contact')}
                 </Button>
               </Link>

@@ -34,7 +34,7 @@ export const About: React.FC = () => {
   return (
     <div className="min-h-screen pt-20 bg-gradient-surface">
       {/* Hero Section */}
-      <section className="py-20 hero-background-laboratory text-foreground relative overflow-hidden">
+      <section className="py-20 hero-background-about text-foreground relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern-dots opacity-20"></div>
         <div className="absolute inset-0 bg-pattern-grid opacity-15"></div>
         <div className="absolute top-20 left-10 w-32 h-32 bg-accent/20 rounded-full blur-xl animate-float"></div>
