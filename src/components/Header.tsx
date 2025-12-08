@@ -47,12 +47,22 @@ export const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-4 group">
+          <Link to="/" className="flex items-center gap-3 group">
             <img 
               src="/images/logo-exform.png" 
               alt="EXFORM Logo" 
-              className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
+            <div className="hidden sm:flex flex-col">
+              <span className="text-xl font-bold text-primary-foreground">
+                <span className="text-primary-foreground">EX</span>
+                <span className="text-accent">FORM</span>
+              </span>
+              <span className="text-xs text-primary-foreground/70 flex items-center gap-1">
+                <span className="w-4 h-0.5 bg-accent"></span>
+                Expertise & Formation
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
