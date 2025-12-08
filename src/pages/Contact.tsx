@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { MapPin, Mail, Phone, Clock, Send, CheckCircle } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Link } from 'react-router-dom';
 import MapboxMap from '@/components/MapboxMap';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export const Contact: React.FC = () => {
-  const { t } = useLanguage();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -23,11 +27,10 @@ export const Contact: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     setTimeout(() => {
       toast({
-        title: t('contact.toast.success'),
-        description: t('contact.toast.description'),
+        title: "Message envoyé",
+        description: "Nous vous répondrons dans les plus brefs délais.",
       });
       setFormData({ first_name: '', last_name: '', email: '', message: '' });
       setIsSubmitting(false);
@@ -44,37 +47,52 @@ export const Contact: React.FC = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      title: t('contact.info.address'),
-      details: [t('contact.address')],
+      title: 'Adresse',
+      details: ['Yopougon – en face du CHU'],
     },
     {
       icon: Mail,
-      title: t('contact.info.email'),
+      title: 'Email',
       details: ['info4@gmail.com'],
     },
     {
       icon: Phone,
-      title: t('contact.info.phone'),
+      title: 'Téléphone',
       details: ['+225 07 14 61 34 89', '+225 27 33 74 72 17'],
     },
     {
       icon: Clock,
-      title: t('contact.info.hours'),
-      details: [t('contact.hours.weekday'), t('contact.hours.saturday')],
+      title: 'Horaires',
+      details: ['Lundi - Vendredi: 8h - 18h', 'Samedi: 8h - 13h'],
     },
+  ];
+
+  const faqs = [
+    {
+      question: 'Quels sont vos délais de réponse ?',
+      answer: 'Nous nous engageons à répondre à toute demande dans les 24h ouvrées.'
+    },
+    {
+      question: 'Proposez-vous des formations sur site ?',
+      answer: 'Oui, nous pouvons organiser des formations directement dans vos locaux selon vos besoins.'
+    },
+    {
+      question: 'Comment obtenir un devis pour une analyse ?',
+      answer: 'Contactez-nous avec les détails de votre besoin, nous vous fournirons un devis gratuit sous 48h.'
+    }
   ];
 
   return (
     <div className="min-h-screen pt-20">
-      {/* Hero Section with Background Image */}
-      <section className="relative py-20 text-primary-foreground overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-pattern-dots opacity-20"></div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-display mb-6 bounce-in text-foreground">
-            {t('contact.title')}
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+            Contactez-nous
           </h1>
-          <p className="text-xl mb-8 text-foreground/80 slide-up">
-            {t('contact.subtitle')}
+          <p className="text-xl text-muted-foreground">
+            Nous sommes à votre écoute pour répondre à toutes vos questions et vous accompagner dans vos projets
           </p>
         </div>
       </section>
@@ -83,15 +101,16 @@ export const Contact: React.FC = () => {
       <section className="py-20 gradient-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Enhanced Contact Form */}
-            <div className="slide-right">
-              <div className="card-elevated form-float glass-card animate-shimmer">
-                <h2 className="text-section text-foreground mb-6 animate-pulse-glow">
-                  {t('contact.form.title')}
+            {/* Contact Form */}
+            <div>
+              <div className="bg-card rounded-2xl p-8 shadow-lg border border-border/50">
+                <h2 className="text-2xl font-bold text-foreground mb-6 relative">
+                  Envoyez-nous un Message
+                  <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-accent to-transparent rounded-full"></div>
                 </h2>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="form-float">
+                  <div>
                     <label htmlFor="first_name" className="block text-sm font-medium text-foreground mb-2">
                       Prénom *
                     </label>
@@ -102,13 +121,12 @@ export const Contact: React.FC = () => {
                       required
                       value={formData.first_name}
                       onChange={handleChange}
-                      className="w-full input-glow transition-all duration-300"
+                      className="w-full"
                       placeholder="Votre prénom"
-                      maxLength={100}
                     />
                   </div>
 
-                  <div className="form-float">
+                  <div>
                     <label htmlFor="last_name" className="block text-sm font-medium text-foreground mb-2">
                       Nom *
                     </label>
@@ -119,56 +137,51 @@ export const Contact: React.FC = () => {
                       required
                       value={formData.last_name}
                       onChange={handleChange}
-                      className="w-full input-glow transition-all duration-300"
+                      className="w-full"
                       placeholder="Votre nom"
-                      maxLength={100}
                     />
                   </div>
 
-                  <div className="form-float">
+                  <div>
                     <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                      {t('contact.form.email')}
+                      Email
                     </label>
                     <Input
                       id="email"
                       name="email"
                       type="email"
-                      required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full input-glow transition-all duration-300"
-                      placeholder={t('contact.form.email.placeholder')}
-                      maxLength={255}
+                      className="w-full"
+                      placeholder="votre.email@exemple.com"
                     />
                   </div>
 
-                  <div className="form-float">
+                  <div>
                     <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                      {t('contact.form.message')}
+                      Message
                     </label>
                     <Textarea
                       id="message"
                       name="message"
-                      required
                       value={formData.message}
                       onChange={handleChange}
                       rows={5}
-                      className="w-full input-glow transition-all duration-300"
-                      placeholder={t('contact.form.message.placeholder')}
-                      maxLength={1000}
+                      className="w-full"
+                      placeholder="Décrivez votre besoin ou votre question..."
                     />
                   </div>
 
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full btn-hero transform hover:scale-105 transition-all duration-300 animate-pulse-glow"
+                    className="w-full bg-accent hover:bg-accent/90 text-white py-3 rounded-lg"
                   >
                     {isSubmitting ? (
-                      <span className="loading-pulse">{t('contact.form.sending')}</span>
+                      <span>Envoi en cours...</span>
                     ) : (
                       <>
-                        {t('contact.form.send')}
+                        Envoyer
                         <Send className="ml-2 h-4 w-4" />
                       </>
                     )}
@@ -178,24 +191,24 @@ export const Contact: React.FC = () => {
             </div>
 
             {/* Contact Information */}
-            <div className="slide-left">
-              <h2 className="text-section text-foreground mb-8 animate-fade-in">
-                {t('contact.info.title')}
+            <div>
+              <h2 className="text-2xl font-bold text-foreground mb-8">
+                Nos Coordonnées
               </h2>
 
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <div key={index} className="card-elevated hover:scale-105 transition-all duration-300 animate-shimmer" style={{animationDelay: `${index * 0.1}s`}}>
+                  <div key={index} className="bg-card rounded-xl p-6 shadow-sm border border-border/50 hover:shadow-md transition-shadow">
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 gradient-accent rounded-xl flex items-center justify-center flex-shrink-0 animate-pulse-glow">
-                        <info.icon className="h-6 w-6 text-white" />
+                      <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <info.icon className="h-6 w-6 text-accent" />
                       </div>
                       <div>
-                        <h3 className="text-card-title text-card-foreground mb-2">
+                        <h3 className="text-lg font-semibold text-foreground mb-1">
                           {info.title}
                         </h3>
                         {info.details.map((detail, detailIndex) => (
-                          <p key={detailIndex} className="text-body text-muted-foreground">
+                          <p key={detailIndex} className="text-muted-foreground">
                             {detail}
                           </p>
                         ))}
@@ -205,18 +218,18 @@ export const Contact: React.FC = () => {
                 ))}
               </div>
 
-              {/* Enhanced Quick Actions */}
+              {/* Quick Actions */}
               <div className="mt-8 space-y-4">
                 <Link to="/training" className="block">
-                  <Button variant="outline" className="w-full justify-start hover:bg-accent hover:text-white transition-all duration-300 transform hover:scale-105 glass">
-                    <CheckCircle className="mr-2 h-4 w-4" />
-                    {t('contact.quick.training')}
+                  <Button variant="outline" className="w-full justify-start border-border/50 hover:bg-accent/5">
+                    <CheckCircle className="mr-2 h-4 w-4 text-accent" />
+                    S'inscrire à une formation
                   </Button>
                 </Link>
                 <Link to="/laboratory" className="block">
-                  <Button variant="outline" className="w-full justify-start hover:bg-accent hover:text-white transition-all duration-300 transform hover:scale-105 glass">
-                    <CheckCircle className="mr-2 h-4 w-4" />
-                    {t('contact.quick.analysis')}
+                  <Button variant="outline" className="w-full justify-start border-border/50 hover:bg-accent/5">
+                    <CheckCircle className="mr-2 h-4 w-4 text-accent" />
+                    Demander une analyse
                   </Button>
                 </Link>
               </div>
@@ -226,20 +239,19 @@ export const Contact: React.FC = () => {
       </section>
 
       {/* Map Section */}
-      <section id="map-section" className="py-20 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-pattern-grid opacity-10"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-12 bounce-in">
-            <h2 className="text-section text-foreground mb-6">
-              {t('contact.map.title')}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              Notre Localisation
             </h2>
-            <p className="text-body text-muted-foreground max-w-2xl mx-auto">
-              {t('contact.map.subtitle')}
+            <p className="text-muted-foreground">
+              Retrouvez-nous facilement à Yopougon, en face du CHU
             </p>
           </div>
 
-          <div className="card-elevated hover:scale-105 transition-all duration-500 slide-up max-w-4xl mx-auto">
-            <div className="w-full h-[400px] rounded-xl overflow-hidden bg-muted">
+          <div className="rounded-2xl overflow-hidden shadow-lg max-w-4xl mx-auto">
+            <div className="w-full h-[400px]">
               <MapboxMap
                 latitude={5.357130}
                 longitude={-4.088477}
@@ -250,40 +262,31 @@ export const Contact: React.FC = () => {
         </div>
       </section>
 
-      {/* Enhanced FAQ Section */}
+      {/* FAQ Section */}
       <section className="py-20 gradient-surface">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 fade-in">
-            <h2 className="text-section text-foreground mb-6">
-              {t('contact.faq.title')}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-foreground">
+              Questions Fréquentes
             </h2>
           </div>
 
-          <div className="space-y-6">
-            {[
-              {
-                question: t('contact.faq.q1'),
-                answer: t('contact.faq.a1')
-              },
-              {
-                question: t('contact.faq.q2'),
-                answer: t('contact.faq.a2')
-              },
-              {
-                question: t('contact.faq.q3'),
-                answer: t('contact.faq.a3')
-              }
-            ].map((faq, index) => (
-              <div key={index} className="card-elevated hover:scale-105 transition-all duration-300 animate-shimmer glass-card" style={{animationDelay: `${index * 0.1}s`}}>
-                <h3 className="text-card-title text-card-foreground mb-3 animate-pulse-glow">
+          <Accordion type="single" collapsible className="space-y-4">
+            {faqs.map((faq, index) => (
+              <AccordionItem 
+                key={index} 
+                value={`item-${index}`}
+                className="bg-card rounded-xl border border-border/50 px-6 shadow-sm"
+              >
+                <AccordionTrigger className="text-lg font-semibold text-foreground hover:no-underline py-6">
                   {faq.question}
-                </h3>
-                <p className="text-body text-muted-foreground">
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-6">
                   {faq.answer}
-                </p>
-              </div>
+                </AccordionContent>
+              </AccordionItem>
             ))}
-          </div>
+          </Accordion>
         </div>
       </section>
     </div>
