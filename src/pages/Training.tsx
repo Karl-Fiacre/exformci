@@ -159,7 +159,7 @@ export const Training: React.FC = () => {
             <div className="fade-in">
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800"
+                  src="/images/training-hero.jpg"
                   alt="Formation EXFORM"
                   className="w-full h-96 object-cover rounded-2xl shadow-lg"
                 />

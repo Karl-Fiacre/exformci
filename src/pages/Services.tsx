@@ -19,7 +19,7 @@ export const Services: React.FC = () => {
     {
       title: t('services.laboratory'),
       description: 'Analyses physico-chimiques complètes selon les normes ISO et HACCP. Notre laboratoire moderne offre des services de contrôle qualité et de certification pour tous secteurs d\'activité.',
-      image: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800',
+      image: '/images/service-laboratory.jpg',
       link: '/laboratory',
       icon: FlaskConical,
       features: [
@@ -32,7 +32,7 @@ export const Services: React.FC = () => {
     {
       title: t('services.construction'),
       description: 'Solutions complètes pour vos projets BTP et équipements industriels. De la conception à la réalisation, nous vous accompagnons avec expertise et professionnalisme.',
-      image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800',
+      image: '/images/construction-hero.jpg',
       link: '/services',
       icon: HardHat,
       features: [
@@ -45,7 +45,7 @@ export const Services: React.FC = () => {
     {
       title: t('services.training'),
       description: 'Formations continues qualifiantes adaptées aux besoins du marché. Développez les compétences de vos équipes avec nos programmes certifiés et personnalisés.',
-      image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800',
+      image: '/images/service-training.jpg',
       link: '/training',
       icon: GraduationCap,
       features: [
@@ -58,7 +58,7 @@ export const Services: React.FC = () => {
     {
       title: t('services.maintenance'),
       description: 'Services de maintenance préventive et corrective pour vos équipements industriels. Optimisez la performance et la durée de vie de vos installations.',
-      image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800',
+      image: '/images/service-construction.jpg',
       link: '/services',
       icon: Settings,
       features: [
