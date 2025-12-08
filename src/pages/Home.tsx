@@ -22,17 +22,34 @@ export const Home: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-muted to-background pt-20">
-        <div className="absolute inset-0 bg-pattern-dots opacity-20"></div>
-        <div className="absolute top-20 right-20 w-32 h-32 rounded-full bg-accent/20 animate-float blur-xl"></div>
-        <div className="absolute bottom-20 left-20 w-40 h-40 rounded-full bg-orange/20 animate-float blur-xl" style={{animationDelay: '1s'}}></div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url(/images/hero-bg.jpg)' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/60 to-primary-dark/80" />
+        <div className="absolute inset-0 bg-pattern-dots opacity-10"></div>
+        <div className="absolute top-20 right-20 w-32 h-32 rounded-full bg-accent/30 animate-float blur-xl"></div>
+        <div className="absolute bottom-20 left-20 w-40 h-40 rounded-full bg-white/10 animate-float blur-xl" style={{animationDelay: '1s'}}></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="fade-in">
-            <h1 className="text-display text-foreground mb-6">{t('hero.title')}</h1>
-            <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto">{t('hero.subtitle')}</p>
-            <Link to="/services">
-              <Button className="btn-hero">{t('hero.cta')}<ArrowRight className="ml-2 h-5 w-5" /></Button>
-            </Link>
+            <span className="inline-block px-6 py-3 bg-white/10 backdrop-blur-sm text-white rounded-full text-sm font-medium mb-8 border border-white/20">
+              Excellence • Innovation • Professionnalisme
+            </span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-2xl">{t('hero.title')}</h1>
+            <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">{t('hero.subtitle')}</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/services">
+                <Button className="bg-accent hover:bg-accent-light text-white px-8 py-4 text-lg rounded-xl font-semibold shadow-2xl hover:scale-105 transition-all duration-300">
+                  {t('hero.cta')}<ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link to="/contact">
+                <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg rounded-xl font-semibold backdrop-blur-sm">
+                  {t('nav.contact')}
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

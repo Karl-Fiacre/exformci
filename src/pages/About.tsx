@@ -216,10 +216,35 @@ export const About: React.FC = () => {
             </p>
           </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {[
+              { name: 'Kouamé Yao', role: 'Directeur Général', image: '/images/team-1.jpg' },
+              { name: 'Aminata Koné', role: 'Responsable Laboratoire', image: '/images/team-3.jpg' },
+              { name: 'Jean-Baptiste Aka', role: 'Chef de Formation', image: '/images/team-2.jpg' },
+            ].map((member, index) => (
+              <div key={index} className="bg-white rounded-2xl p-6 shadow-lg text-center fade-in hover:scale-105 transition-all duration-300 group" style={{animationDelay: `${index * 0.1}s`}}>
+                <div className="relative mb-6">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-accent/20 group-hover:border-accent transition-colors duration-300"
+                  />
+                  <div className="absolute inset-0 w-32 h-32 mx-auto rounded-full bg-gradient-accent opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                </div>
+                <h3 className="text-card-title text-card-foreground mb-2">
+                  {member.name}
+                </h3>
+                <p className="text-body text-accent font-medium">
+                  {member.role}
+                </p>
+              </div>
+            ))}
+          </div>
+
           <div className="bg-white rounded-2xl p-8 shadow-md text-center fade-in">
             <div className="mb-6">
-              <div className="w-24 h-24 bg-gradient-accent rounded-full mx-auto mb-4 flex items-center justify-center">
-                <Users className="h-12 w-12 text-white" />
+              <div className="w-16 h-16 bg-gradient-accent rounded-full mx-auto mb-4 flex items-center justify-center">
+                <Users className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-card-title text-card-foreground mb-2">
                 Équipe Multidisciplinaire
