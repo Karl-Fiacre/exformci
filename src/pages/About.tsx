@@ -96,7 +96,7 @@ export const About: React.FC = () => {
                   <AnimatedCounter
                     end={10}
                     suffix="+"
-                    className="text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent mb-3 drop-shadow-lg animate-pulse-glow"
+                    className="text-5xl lg:text-6xl font-extrabold text-accent mb-3"
                   />
                   <div className="text-sm lg:text-base text-muted-foreground font-medium">Années d'Expérience</div>
                 </div>
@@ -106,7 +106,7 @@ export const About: React.FC = () => {
                   <AnimatedCounter
                     end={500}
                     suffix="+"
-                    className="text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent mb-3 drop-shadow-lg animate-pulse-glow"
+                    className="text-5xl lg:text-6xl font-extrabold text-accent mb-3"
                   />
                   <div className="text-sm lg:text-base text-muted-foreground font-medium">Professionnels Formés</div>
                 </div>
@@ -116,7 +116,7 @@ export const About: React.FC = () => {
                   <AnimatedCounter
                     end={10}
                     suffix="+"
-                    className="text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent mb-3 drop-shadow-lg animate-pulse-glow"
+                    className="text-5xl lg:text-6xl font-extrabold text-accent mb-3"
                   />
                   <div className="text-sm lg:text-base text-muted-foreground font-medium">Entreprises Partenaires</div>
                 </div>
@@ -126,7 +126,7 @@ export const About: React.FC = () => {
                   <AnimatedCounter
                     end={10}
                     suffix="+"
-                    className="text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent mb-3 drop-shadow-lg animate-pulse-glow"
+                    className="text-5xl lg:text-6xl font-extrabold text-accent mb-3"
                   />
                   <div className="text-sm lg:text-base text-muted-foreground font-medium">Formations Disponibles</div>
                 </div>
