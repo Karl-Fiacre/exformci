@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <img alt="EXFORM Logo" className="h-16 w-auto object-contain" src="/lovable-uploads/a03a3322-a827-4be4-abe4-2336c253fc8f.jpg" />
+              <img alt="EXFORM Logo" className="h-16 w-auto object-contain" src="/lovable-uploads/8a4545d4-2d79-4212-adb4-efd92c146cba.jpg" />
             </div>
             <p className="text-sm text-primary-foreground/80 leading-relaxed">
               {t('hero.title')}
