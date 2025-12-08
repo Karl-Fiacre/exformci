@@ -2,62 +2,49 @@ import React from 'react';
 import { MapPin, Mail, Phone, Facebook, Twitter, Linkedin, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-
 export const Footer: React.FC = () => {
-  const { t } = useLanguage();
-
-  const quickLinks = [
-    { name: t('nav.home'), href: '/' },
-    { name: t('nav.about'), href: '/about' },
-    { name: t('nav.services'), href: '/services' },
-    { name: t('nav.laboratory'), href: '/laboratory' },
-    { name: t('nav.training'), href: '/training' },
-    { name: t('nav.contact'), href: '/contact' },
-  ];
-
-  const services = [
-    t('services.laboratory'),
-    t('services.construction'),
-    t('services.training'),
-    t('services.maintenance'),
-  ];
-
-  return (
-    <footer className="bg-primary text-primary-foreground">
+  const {
+    t
+  } = useLanguage();
+  const quickLinks = [{
+    name: t('nav.home'),
+    href: '/'
+  }, {
+    name: t('nav.about'),
+    href: '/about'
+  }, {
+    name: t('nav.services'),
+    href: '/services'
+  }, {
+    name: t('nav.laboratory'),
+    href: '/laboratory'
+  }, {
+    name: t('nav.training'),
+    href: '/training'
+  }, {
+    name: t('nav.contact'),
+    href: '/contact'
+  }];
+  const services = [t('services.laboratory'), t('services.construction'), t('services.training'), t('services.maintenance')];
+  return <footer className="bg-primary text-primary-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <img
-                src="/images/logo-exform.png"
-                alt="EXFORM Logo"
-                className="h-16 w-auto object-contain"
-              />
+              <img alt="EXFORM Logo" className="h-16 w-auto object-contain" src="/lovable-uploads/a03a3322-a827-4be4-abe4-2336c253fc8f.jpg" />
             </div>
             <p className="text-sm text-primary-foreground/80 leading-relaxed">
               {t('hero.title')}
             </p>
             <div className="flex space-x-4">
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-primary-foreground/60 hover:text-accent hover:bg-white/20 transition-all duration-300"
-                aria-label="Facebook"
-              >
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-primary-foreground/60 hover:text-accent hover:bg-white/20 transition-all duration-300" aria-label="Facebook">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-primary-foreground/60 hover:text-accent hover:bg-white/20 transition-all duration-300"
-                aria-label="Twitter"
-              >
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-primary-foreground/60 hover:text-accent hover:bg-white/20 transition-all duration-300" aria-label="Twitter">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-primary-foreground/60 hover:text-accent hover:bg-white/20 transition-all duration-300"
-                aria-label="LinkedIn"
-              >
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-primary-foreground/60 hover:text-accent hover:bg-white/20 transition-all duration-300" aria-label="LinkedIn">
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
@@ -70,17 +57,12 @@ export const Footer: React.FC = () => {
               Navigation
             </h3>
             <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="group flex items-center text-sm text-primary-foreground/80 hover:text-accent transition-all duration-300"
-                  >
+              {quickLinks.map(link => <li key={link.name}>
+                  <Link to={link.href} className="group flex items-center text-sm text-primary-foreground/80 hover:text-accent transition-all duration-300">
                     <ArrowRight className="h-4 w-4 mr-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                     {link.name}
                   </Link>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
@@ -91,12 +73,10 @@ export const Footer: React.FC = () => {
               {t('nav.services')}
             </h3>
             <ul className="space-y-3">
-              {services.map((service, index) => (
-                <li key={index} className="text-sm text-primary-foreground/80 flex items-start gap-2">
+              {services.map((service, index) => <li key={index} className="text-sm text-primary-foreground/80 flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0"></span>
                   {service}
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
@@ -161,6 +141,5 @@ export const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
