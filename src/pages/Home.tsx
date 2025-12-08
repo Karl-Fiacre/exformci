@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, CheckCircle, Users, Award, Zap, FlaskConical, GraduationCap, HardHat } from 'lucide-react';
+import { ArrowRight, CheckCircle, Users, Award, Zap, FlaskConical, GraduationCap, HardHat, Quote, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -7,6 +7,33 @@ import { PartnerCarousel } from '@/components/PartnerCarousel';
 
 export const Home: React.FC = () => {
   const { t } = useLanguage();
+
+  const testimonials = [
+    {
+      name: 'Kouadio Aman',
+      role: 'Directeur Technique',
+      company: 'Cargill CI',
+      image: '/images/team-1.jpg',
+      content: 'EXFORM a transformé notre approche de la maintenance industrielle. Leurs formations sont exceptionnelles et leur équipe très professionnelle.',
+      rating: 5,
+    },
+    {
+      name: 'Marie Koné',
+      role: 'Responsable Qualité',
+      company: 'Olam Cocoa',
+      image: '/images/team-3.jpg',
+      content: 'Le laboratoire EXFORM nous fournit des analyses fiables et rapides. Leur certification ISO garantit une qualité irréprochable.',
+      rating: 5,
+    },
+    {
+      name: 'Jean-Baptiste Aka',
+      role: 'Chef de Production',
+      company: 'El Paradis Cosmetic',
+      image: '/images/team-2.jpg',
+      content: 'Grâce aux formations EXFORM, notre équipe a gagné en compétence et en efficacité. Je recommande vivement leurs services.',
+      rating: 5,
+    },
+  ];
 
   const stats = [
     { icon: Users, value: '500+', label: t('home.stats.clients') },
@@ -136,6 +163,71 @@ export const Home: React.FC = () => {
 
       {/* Partners Carousel */}
       <PartnerCarousel />
+
+      {/* Testimonials Section */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-pattern-dots opacity-5"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16 animate-fade-in-up">
+            <span className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-6">
+              Témoignages
+            </span>
+            <h2 className="text-section text-foreground mb-6 text-gradient-animate">
+              Ce que nos clients disent
+            </h2>
+            <p className="text-body text-muted-foreground max-w-2xl mx-auto">
+              Découvrez les retours d'expérience de nos clients satisfaits
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="group relative bg-gradient-to-br from-white to-muted/30 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up border border-border/50"
+                style={{ animationDelay: `${index * 0.15}s` }}
+              >
+                {/* Quote icon */}
+                <div className="absolute top-6 right-6 w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300">
+                  <Quote className="h-6 w-6 text-accent" />
+                </div>
+
+                {/* Rating */}
+                <div className="flex gap-1 mb-6">
+                  {Array.from({ length: testimonial.rating }).map((_, i) => (
+                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                  ))}
+                </div>
+
+                {/* Content */}
+                <p className="text-body text-muted-foreground mb-8 leading-relaxed italic">
+                  "{testimonial.content}"
+                </p>
+
+                {/* Author */}
+                <div className="flex items-center gap-4">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-14 h-14 rounded-full object-cover border-2 border-accent/20 group-hover:border-accent transition-colors duration-300"
+                  />
+                  <div>
+                    <h4 className="font-semibold text-foreground group-hover:text-accent transition-colors duration-300">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      {testimonial.role}
+                    </p>
+                    <p className="text-sm text-accent font-medium">
+                      {testimonial.company}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Why Choose Us */}
       <section className="py-24 bg-white relative overflow-hidden">
