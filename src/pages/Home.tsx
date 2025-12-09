@@ -10,37 +10,37 @@ export const Home: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const stats = [
-    { icon: Users, value: 500, suffix: '+', label: 'Clients Satisfaits' },
-    { icon: Award, value: 15, suffix: '+', label: "Années d'Expérience" },
-    { icon: GraduationCap, value: 50, suffix: '+', label: 'Formations Dispensées' },
+    { icon: Users, value: 500, suffix: '+', label: t('home.stats.clients') },
+    { icon: Award, value: 15, suffix: '+', label: t('home.stats.experience') },
+    { icon: GraduationCap, value: 50, suffix: '+', label: t('home.stats.formations') },
   ];
 
   const services = [
     {
-      title: "Laboratoire d'analyse physico-chimique",
-      description: 'Analyses complètes et certifiées selon les normes internationales ISO et HACCP',
+      title: t('services.laboratory'),
+      description: t('services.laboratory.desc'),
       image: '/images/laboratory-hero.jpg',
       link: '/laboratory',
     },
     {
-      title: 'BTP et équipements industriels',
-      description: 'Solutions complètes pour vos projets de construction et équipements industriels',
+      title: t('services.construction'),
+      description: t('services.construction.desc'),
       image: '/images/construction-hero.jpg',
       link: '/services',
     },
     {
-      title: 'Formation continue qualifiante',
-      description: 'Formations qualifiantes adaptées aux besoins du marché et de votre entreprise',
+      title: t('services.training'),
+      description: t('services.training.desc'),
       image: '/images/training-hero.jpg',
       link: '/training',
     },
   ];
 
   const whyChooseUs = [
-    'Expertise technique certifiée et reconnue',
-    'Formations adaptées aux besoins du marché',
-    'Laboratoire équipé aux normes internationales',
-    'Accompagnement personnalisé de vos projets',
+    t('home.why.point1'),
+    t('home.why.point2'),
+    t('home.why.point3'),
+    t('home.why.point4'),
   ];
 
   const partners = [
@@ -50,24 +50,24 @@ export const Home: React.FC = () => {
 
   const faqs = [
     {
-      question: 'Quelles sont vos accréditations et certifications ?',
-      answer: 'EXFORM dispose des certifications ISO 9001 et ISO 17025 pour nos laboratoires. Nous sommes également accrédités COFRAC et reconnus par les organismes internationaux de normalisation.',
+      question: t('home.faq.q1'),
+      answer: t('home.faq.a1'),
     },
     {
-      question: 'Combien de temps durent vos formations ?',
-      answer: 'Nos formations varient de 2 jours à plusieurs semaines selon le programme. Nous proposons également des formations sur mesure adaptées à vos besoins spécifiques.',
+      question: t('home.faq.q2'),
+      answer: t('home.faq.a2'),
     },
     {
-      question: 'Proposez-vous un accompagnement post-formation ?',
-      answer: 'Oui, nous offrons un suivi personnalisé après chaque formation incluant un accès à nos ressources en ligne et un support technique pendant 3 mois.',
+      question: t('home.faq.q3'),
+      answer: t('home.faq.a3'),
     },
     {
-      question: 'Quels types d\'analyses effectuez-vous dans votre laboratoire ?',
-      answer: 'Notre laboratoire réalise des analyses physico-chimiques, microbiologiques, environnementales et des matériaux de construction selon les normes internationales.',
+      question: t('home.faq.q4'),
+      answer: t('home.faq.a4'),
     },
     {
-      question: 'Comment obtenir un devis pour vos services ?',
-      answer: 'Vous pouvez demander un devis gratuit via notre formulaire de contact ou en nous appelant directement. Nous vous répondons sous 24h.',
+      question: t('home.faq.q5'),
+      answer: t('home.faq.a5'),
     },
   ];
 
@@ -85,10 +85,10 @@ export const Home: React.FC = () => {
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in-up leading-tight">
-            Expertise Technique & Formation aux Métiers
+            {t('hero.title')}
           </h1>
           <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            Excellence, Innovation et Professionnalisme au service de votre développement
+            {t('hero.subtitle')}
           </p>
           <Link to="/services">
             <Button 
@@ -96,7 +96,7 @@ export const Home: React.FC = () => {
               className="bg-accent hover:bg-accent-light text-accent-foreground px-8 py-4 text-base rounded-full shadow-lg shadow-accent/30 animate-fade-in-up group"
               style={{ animationDelay: '0.4s' }}
             >
-              Découvrir nos services
+              {t('hero.cta')}
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>
@@ -139,12 +139,12 @@ export const Home: React.FC = () => {
       <section className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <p className="text-accent font-semibold mb-2">Nos Services</p>
+            <p className="text-accent font-semibold mb-2">{t('home.services.badge')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Découvrez nos services de pointe
+              {t('home.services.title')}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Découvrez notre gamme complète de services techniques et de formations professionnelles
+              {t('home.services.subtitle')}
             </p>
           </div>
 
@@ -174,7 +174,7 @@ export const Home: React.FC = () => {
                     to={service.link}
                     className="inline-flex items-center text-accent font-semibold hover:gap-3 gap-2 transition-all duration-300"
                   >
-                    En savoir plus
+                    {t('common.learn_more')}
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
@@ -190,10 +190,10 @@ export const Home: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in-up">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                Pourquoi Choisir EXFORM ?
+                {t('home.why.title')}
               </h2>
               <p className="text-muted-foreground text-lg mb-8">
-                Avec plus de 15 ans d'expérience, EXFORM s'impose comme le partenaire de référence pour vos besoins en expertise technique et formation professionnelle.
+                {t('home.why.subtitle')}
               </p>
               <div className="space-y-4 mb-8">
                 {whyChooseUs.map((item, index) => (
@@ -211,7 +211,7 @@ export const Home: React.FC = () => {
               </div>
               <Link to="/about">
                 <Button className="bg-primary hover:bg-primary-light text-primary-foreground">
-                  Contactez-nous
+                  {t('about.cta')}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -236,10 +236,10 @@ export const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Nos Partenaires de Confiance
+              {t('home.partners.title')}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Nous collaborons avec les leaders de l'industrie pour vous offrir les meilleures solutions
+              {t('home.partners.subtitle')}
             </p>
           </div>
 
@@ -267,10 +267,10 @@ export const Home: React.FC = () => {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Questions Fréquemment Posées
+              {t('home.faq.title')}
             </h2>
             <p className="text-muted-foreground">
-              Trouvez rapidement des réponses à vos questions
+              {t('home.faq.subtitle')}
             </p>
           </div>
 
@@ -306,11 +306,11 @@ export const Home: React.FC = () => {
           </div>
 
           <div className="text-center mt-10">
-            <p className="text-muted-foreground mb-4">Vous avez d'autres questions ?</p>
+            <p className="text-muted-foreground mb-4">{t('home.faq.more')}</p>
             <Link to="/contact">
               <Button variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
                 <MessageCircle className="mr-2 h-4 w-4" />
-                Contact
+                {t('common.contact')}
               </Button>
             </Link>
           </div>
@@ -325,10 +325,10 @@ export const Home: React.FC = () => {
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Prêt à Développer Vos Compétences ?
+            {t('home.cta.title')}
           </h2>
           <p className="text-white/80 text-lg mb-10 max-w-2xl mx-auto">
-            Contactez-nous dès aujourd'hui pour discuter de vos besoins en formation et expertise technique
+            {t('home.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
@@ -336,7 +336,7 @@ export const Home: React.FC = () => {
                 size="lg" 
                 className="bg-accent hover:bg-accent-light text-accent-foreground px-8 py-6 text-lg rounded-xl shadow-accent"
               >
-                Nous contacter
+                {t('home.cta.contact')}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
@@ -346,7 +346,7 @@ export const Home: React.FC = () => {
                 variant="outline"
                 className="border-2 border-white/50 text-white hover:bg-white/10 px-8 py-6 text-lg rounded-xl"
               >
-                Voir nos formations
+                {t('home.cta.trainings')}
               </Button>
             </Link>
           </div>
