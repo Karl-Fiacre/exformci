@@ -45,7 +45,7 @@ export const Header: React.FC = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <img alt="EXFORM Logo" className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" src="/lovable-uploads/0698fe59-9695-40a0-8e2a-fa9ac3b435e8.jpg" />
+            <img alt="EXFORM Logo" className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105 bg-white rounded-lg p-1" src="/images/logo-exform.png" />
             <div className="hidden sm:flex flex-col">
               <span className="text-xl font-bold text-primary-foreground">
                 <span className="text-primary-foreground">EX</span>
