@@ -2,6 +2,7 @@ import React from 'react';
 import { FlaskConical, HardHat, GraduationCap, Wrench, ArrowRight, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
 import {
   Carousel,
   CarouselContent,
@@ -11,82 +12,84 @@ import {
 } from "@/components/ui/carousel";
 
 export const Services: React.FC = () => {
+  const { t } = useLanguage();
+
   const mainServices = [
     {
-      title: "Laboratoire d'analyse physico-chimique",
-      description: "Analyses physico-chimiques complètes selon les normes ISO et HACCP. Notre laboratoire moderne offre des services de contrôle qualité et de certification pour tous secteurs d'activité.",
+      title: t('services.laboratory.title'),
+      description: t('services.laboratory.description'),
       image: '/images/laboratory-hero.jpg',
       link: '/laboratory',
       icon: FlaskConical,
       features: [
-        'Analyses conformes ISO 9001',
-        'Certifications HACCP',
-        'Contrôle qualité alimentaire',
-        'Analyses environnementales',
+        t('services.laboratory.feature1'),
+        t('services.laboratory.feature2'),
+        t('services.laboratory.feature3'),
+        t('services.laboratory.feature4'),
       ],
     },
     {
-      title: 'BTP et équipements industriels',
-      description: "Solutions complètes pour vos projets BTP et équipements industriels. De la conception à la réalisation, nous vous accompagnons avec expertise et professionnalisme.",
+      title: t('services.construction.title'),
+      description: t('services.construction.description'),
       image: '/images/construction-hero.jpg',
       link: '/services',
       icon: HardHat,
       features: [
-        'Études et conception',
-        'Réalisation de projets BTP',
-        "Installation d'équipements",
-        'Maintenance industrielle',
+        t('services.construction.feature1'),
+        t('services.construction.feature2'),
+        t('services.construction.feature3'),
+        t('services.construction.feature4'),
       ],
     },
     {
-      title: 'Formation continue qualifiante',
-      description: "Formations continues qualifiantes adaptées aux besoins du marché. Développez les compétences de vos équipes avec nos programmes certifiés et personnalisés.",
+      title: t('services.training.title'),
+      description: t('services.training.description'),
       image: '/images/training-hero.jpg',
       link: '/training',
       icon: GraduationCap,
       features: [
-        'Formations certifiantes',
-        'Programmes sur mesure',
-        'Formateurs experts',
-        'Suivi post-formation',
+        t('services.training.feature1'),
+        t('services.training.feature2'),
+        t('services.training.feature3'),
+        t('services.training.feature4'),
       ],
     },
     {
-      title: 'Pluri-mécanique et maintenance industrielle',
-      description: "Services de maintenance préventive et corrective pour vos équipements industriels. Optimisez la performance et la durée de vie de vos installations.",
+      title: t('services.maintenance.title'),
+      description: t('services.maintenance.description'),
       image: '/images/construction-hero.jpg',
       link: '/services',
       icon: Wrench,
       features: [
-        'Maintenance préventive',
-        "Dépannage d'urgence",
-        'Optimisation performance',
-        'Contrats de maintenance',
+        t('services.maintenance.feature1'),
+        t('services.maintenance.feature2'),
+        t('services.maintenance.feature3'),
+        t('services.maintenance.feature4'),
       ],
     },
   ];
 
   const additionalServices = [
-    'Études et projets industriels (PGE-A et EIES)',
-    'Conseil en organisation industrielle',
-    'Audit technique et énergétique',
-    'Accompagnement certification qualité',
-    'Formation en sécurité industrielle',
-    'Support technique spécialisé',
+    t('services.additional.studies'),
+    t('services.additional.consulting'),
+    t('services.additional.audit'),
+    t('services.additional.certification'),
+    t('services.additional.safety'),
+    t('services.additional.support'),
   ];
 
   const burnerImages = [
     {
       src: '/images/burner-maintenance-1.jpg',
-      alt: 'Installation et maintenance de brûleurs WEISHAUPT',
+      alt: t('services.burner.image1'),
     },
     {
       src: '/images/burner-maintenance-2.jpg',
-      alt: 'Contrôle annuel des brûleurs SAAKE',
+      alt: t('services.burner.image2'),
     },
     {
       src: '/images/burner-maintenance-3.jpg',
-      alt: 'Maintenance des brûleurs industriels',
+      alt: t('services.burner.image3'),
     },
   ];
 
@@ -105,13 +108,13 @@ export const Services: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="mb-8">
             <span className="inline-block px-6 py-2 bg-accent/20 text-accent rounded-full text-sm font-medium mb-6">
-              Services Techniques Avancés
+              {t('services.hero.badge')}
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-accent mb-6">
-              Découvrez nos services de pointe
+              {t('services.hero.title')}
             </h1>
             <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
-              Des solutions techniques innovantes et des formations de qualité pour accompagner votre développement
+              {t('services.hero.subtitle')}
             </p>
           </div>
         </div>
@@ -156,7 +159,7 @@ export const Services: React.FC = () => {
 
                   <Link to={service.link}>
                     <Button className="bg-accent hover:bg-accent/90 text-white px-6 py-2 rounded-lg">
-                      En savoir plus
+                      {t('common.learnMore')}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
@@ -182,10 +185,10 @@ export const Services: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Maintenance des Brûleurs Industriels
+              {t('services.burner.title')}
             </h2>
             <p className="text-muted-foreground max-w-3xl mx-auto">
-              Installation, contrôle annuel, maintenance des brûleurs gaz ou fuel des marques WEISHAUPT et SAAKE installés sur des chaudières ou des torréfacteurs
+              {t('services.burner.description')}
             </p>
           </div>
 
@@ -215,10 +218,10 @@ export const Services: React.FC = () => {
                 <CheckCircle className="h-6 w-6 text-accent" />
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-2">
-                Installation
+                {t('services.burner.installation')}
               </h3>
               <p className="text-muted-foreground text-sm">
-                Installation professionnelle de brûleurs industriels
+                {t('services.burner.installationDesc')}
               </p>
             </div>
             <div className="bg-background rounded-xl p-6 text-center shadow-sm">
@@ -226,10 +229,10 @@ export const Services: React.FC = () => {
                 <CheckCircle className="h-6 w-6 text-accent" />
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-2">
-                Contrôle Annuel
+                {t('services.burner.control')}
               </h3>
               <p className="text-muted-foreground text-sm">
-                Contrôles périodiques et certifications
+                {t('services.burner.controlDesc')}
               </p>
             </div>
             <div className="bg-background rounded-xl p-6 text-center shadow-sm">
@@ -237,10 +240,10 @@ export const Services: React.FC = () => {
                 <CheckCircle className="h-6 w-6 text-accent" />
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-2">
-                Maintenance
+                {t('services.burner.maintenanceTitle')}
               </h3>
               <p className="text-muted-foreground text-sm">
-                Maintenance préventive et corrective
+                {t('services.burner.maintenanceDesc')}
               </p>
             </div>
           </div>
@@ -252,10 +255,10 @@ export const Services: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Services Complémentaires
+              {t('services.additional.title')}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Une gamme étendue de services pour répondre à tous vos besoins techniques et industriels
+              {t('services.additional.subtitle')}
             </p>
           </div>
 
@@ -282,19 +285,19 @@ export const Services: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Notre Processus
+              {t('services.process.title')}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Une approche structurée pour garantir la qualité et la satisfaction de nos clients
+              {t('services.process.subtitle')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { step: '01', title: 'Analyse des Besoins', description: 'Évaluation complète de vos besoins et objectifs' },
-              { step: '02', title: 'Proposition Solution', description: "Développement d'une solution personnalisée" },
-              { step: '03', title: 'Mise en Œuvre', description: 'Réalisation avec suivi qualité rigoureux' },
-              { step: '04', title: 'Suivi & Support', description: 'Accompagnement continu et support technique' },
+              { step: '01', title: t('services.process.step1'), description: t('services.process.step1Desc') },
+              { step: '02', title: t('services.process.step2'), description: t('services.process.step2Desc') },
+              { step: '03', title: t('services.process.step3'), description: t('services.process.step3Desc') },
+              { step: '04', title: t('services.process.step4'), description: t('services.process.step4Desc') },
             ].map((process, index) => (
               <div key={index} className="text-center">
                 <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
@@ -316,21 +319,21 @@ export const Services: React.FC = () => {
       <section className="py-20 bg-primary">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            Prêt à Commencer Votre Projet ?
+            {t('services.cta.title')}
           </h2>
           <p className="text-lg text-white/80 mb-8">
-            Contactez nos experts pour une consultation personnalisée et un devis gratuit
+            {t('services.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
               <Button className="bg-white text-primary hover:bg-white/90 px-8 py-3">
-                Contact
+                {t('common.contact')}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
             <Link to="/laboratory">
               <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-3">
-                Laboratoire
+                {t('nav.laboratory')}
               </Button>
             </Link>
           </div>
