@@ -11,23 +11,23 @@ export const About: React.FC = () => {
   const values = [
     {
       icon: Award,
-      title: 'Excellence',
-      description: 'Nous visons l\'excellence dans chaque service que nous proposons, avec des standards de qualité élevés.',
+      title: t('about.values.excellence'),
+      description: t('about.values.excellenceDesc'),
     },
     {
       icon: Lightbulb,
-      title: 'Innovation',
-      description: 'Nous intégrons les dernières technologies et méthodes pour rester à la pointe de notre domaine.',
+      title: t('about.values.innovation'),
+      description: t('about.values.innovationDesc'),
     },
     {
       icon: Users,
-      title: 'Partenariat',
-      description: 'Nous construisons des relations durables basées sur la confiance et la collaboration.',
+      title: t('about.values.partnership'),
+      description: t('about.values.partnershipDesc'),
     },
     {
       icon: Heart,
-      title: 'Engagement',
-      description: 'Nous nous engageons pleinement dans la réussite de nos clients et partenaires.',
+      title: t('about.values.commitment'),
+      description: t('about.values.commitmentDesc'),
     },
   ];
 
@@ -44,7 +44,7 @@ export const About: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="animate-fade-in">
             <span className="inline-block px-6 py-3 bg-accent/20 text-accent rounded-full text-sm font-medium mb-8 backdrop-blur-sm animate-bounce-in shadow-lg">
-              À Propos d'EXFORM
+              {t('about.badge')}
             </span>
             <h1 className="text-display mb-8 drop-shadow-xl bounce-in font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               {t('about.title')}
@@ -64,27 +64,16 @@ export const About: React.FC = () => {
             <div className="fade-in">
               <div className="mb-6">
                 <span className="inline-block px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4">
-                  Notre Parcours
+                  {t('about.story.badge')}
                 </span>
                 <h2 className="text-section text-foreground">
-                  Notre Histoire
+                  {t('about.story.title')}
                 </h2>
               </div>
               <div className="space-y-6 text-body text-muted-foreground">
-                <p>
-                  Fondée avec la vision de transformer le paysage de la formation technique et de l'expertise
-                  industrielle en Côte d'Ivoire, EXFORM s'est rapidement imposée comme un acteur incontournable
-                  du secteur.
-                </p>
-                <p>
-                  Depuis nos débuts, nous avons formé plus de 500 professionnels et accompagné des centaines
-                  d'entreprises dans leur développement. Notre laboratoire d'analyse physico-chimique est
-                  reconnu pour sa précision et sa conformité aux normes internationales.
-                </p>
-                <p>
-                  Aujourd'hui, EXFORM continue d'évoluer pour répondre aux défis technologiques et industriels
-                  de demain, tout en maintenant notre engagement envers l'excellence et l'innovation.
-                </p>
+                <p>{t('about.story.paragraph1')}</p>
+                <p>{t('about.story.paragraph2')}</p>
+                <p>{t('about.story.paragraph3')}</p>
               </div>
             </div>
 
@@ -98,7 +87,7 @@ export const About: React.FC = () => {
                     suffix="+"
                     className="text-5xl lg:text-6xl font-extrabold text-accent mb-3"
                   />
-                  <div className="text-sm lg:text-base text-muted-foreground font-medium">Années d'Expérience</div>
+                  <div className="text-sm lg:text-base text-muted-foreground font-medium">{t('about.stats.experience')}</div>
                 </div>
                 <div className="card-elevated text-center glass-card hover:scale-110 transition-all duration-500 group relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-accent opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
@@ -108,7 +97,7 @@ export const About: React.FC = () => {
                     suffix="+"
                     className="text-5xl lg:text-6xl font-extrabold text-accent mb-3"
                   />
-                  <div className="text-sm lg:text-base text-muted-foreground font-medium">Professionnels Formés</div>
+                  <div className="text-sm lg:text-base text-muted-foreground font-medium">{t('about.stats.trained')}</div>
                 </div>
                 <div className="card-elevated text-center glass-card hover:scale-110 transition-all duration-500 group relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-accent opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
@@ -118,7 +107,7 @@ export const About: React.FC = () => {
                     suffix="+"
                     className="text-5xl lg:text-6xl font-extrabold text-accent mb-3"
                   />
-                  <div className="text-sm lg:text-base text-muted-foreground font-medium">Entreprises Partenaires</div>
+                  <div className="text-sm lg:text-base text-muted-foreground font-medium">{t('about.stats.partners')}</div>
                 </div>
                 <div className="card-elevated text-center glass-card hover:scale-110 transition-all duration-500 group relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-accent opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
@@ -128,7 +117,7 @@ export const About: React.FC = () => {
                     suffix="+"
                     className="text-5xl lg:text-6xl font-extrabold text-accent mb-3"
                   />
-                  <div className="text-sm lg:text-base text-muted-foreground font-medium">Formations Disponibles</div>
+                  <div className="text-sm lg:text-base text-muted-foreground font-medium">{t('about.stats.trainings')}</div>
                 </div>
               </div>
             </div>
@@ -146,13 +135,10 @@ export const About: React.FC = () => {
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mr-4">
                   <Target className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-card-title text-card-foreground">Notre Mission</h3>
+                <h3 className="text-card-title text-card-foreground">{t('about.mission.title')}</h3>
               </div>
               <p className="text-body text-muted-foreground">
-                Fournir des services d'expertise technique et de formation de classe mondiale,
-                en accompagnant nos clients dans leur développement professionnel et industriel.
-                Nous nous engageons à délivrer des solutions innovantes et adaptées aux défis
-                technologiques contemporains.
+                {t('about.mission.description')}
               </p>
             </div>
 
@@ -162,12 +148,10 @@ export const About: React.FC = () => {
                 <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mr-4">
                   <Eye className="h-6 w-6 text-accent" />
                 </div>
-                <h3 className="text-card-title text-card-foreground">Notre Vision</h3>
+                <h3 className="text-card-title text-card-foreground">{t('about.vision.title')}</h3>
               </div>
               <p className="text-body text-muted-foreground">
-                Devenir le leader régional de l'expertise technique et de la formation professionnelle,
-                reconnu pour notre excellence, notre innovation et notre impact positif sur le
-                développement des compétences industrielles en Afrique de l'Ouest.
+                {t('about.vision.description')}
               </p>
             </div>
           </div>
@@ -179,10 +163,10 @@ export const About: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 fade-in">
             <h2 className="text-section text-foreground mb-6">
-              Nos Valeurs
+              {t('about.values.title')}
             </h2>
             <p className="text-body text-muted-foreground max-w-2xl mx-auto">
-              Les principes qui guident notre action quotidienne et définissent notre identité
+              {t('about.values.subtitle')}
             </p>
           </div>
 
@@ -209,18 +193,18 @@ export const About: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 fade-in">
             <h2 className="text-section text-foreground mb-6">
-              Notre Équipe
+              {t('about.team.title')}
             </h2>
             <p className="text-body text-muted-foreground max-w-2xl mx-auto">
-              Une équipe d'experts passionnés et expérimentés, dédiée à votre succès
+              {t('about.team.subtitle')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {[
-              { name: 'Kouamé Yao', role: 'Directeur Général', image: '/images/team-1.jpg' },
-              { name: 'Aminata Koné', role: 'Responsable Laboratoire', image: '/images/team-3.jpg' },
-              { name: 'Jean-Baptiste Aka', role: 'Chef de Formation', image: '/images/team-2.jpg' },
+              { name: 'Kouamé Yao', role: t('about.team.role1'), image: '/images/team-1.jpg' },
+              { name: 'Aminata Koné', role: t('about.team.role2'), image: '/images/team-3.jpg' },
+              { name: 'Jean-Baptiste Aka', role: t('about.team.role3'), image: '/images/team-2.jpg' },
             ].map((member, index) => (
               <div key={index} className="bg-white rounded-2xl p-6 shadow-lg text-center fade-in hover:scale-105 transition-all duration-300 group" style={{animationDelay: `${index * 0.1}s`}}>
                 <div className="relative mb-6">
@@ -247,13 +231,11 @@ export const About: React.FC = () => {
                 <Users className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-card-title text-card-foreground mb-2">
-                Équipe Multidisciplinaire
+                {t('about.team.multidisciplinary')}
               </h3>
             </div>
             <p className="text-body text-muted-foreground max-w-3xl mx-auto">
-              Notre équipe réunit des ingénieurs, des formateurs certifiés, des techniciens spécialisés
-              et des consultants expérimentés. Chaque membre apporte son expertise unique pour vous
-              offrir des services de la plus haute qualité.
+              {t('about.team.description')}
             </p>
           </div>
         </div>
@@ -268,15 +250,15 @@ export const About: React.FC = () => {
               <Users className="h-8 w-8 text-accent animate-pulse" />
             </div>
             <h2 className="text-section mb-6">
-              Travaillons Ensemble
+              {t('about.cta.title')}
             </h2>
             <p className="text-xl mb-8 text-white/90">
-              Découvrez comment EXFORM peut vous accompagner dans vos projets
+              {t('about.cta.subtitle')}
             </p>
           </div>
           <Link to="/contact">
             <Button className="btn-hero bg-accent text-white hover:bg-accent-light transform hover:scale-105 transition-all duration-300">
-              {t('about.cta')}
+              {t('about.cta.button')}
             </Button>
           </Link>
         </div>
