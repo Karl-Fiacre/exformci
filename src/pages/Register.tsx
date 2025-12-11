@@ -154,8 +154,8 @@ export const Register: React.FC = () => {
     // Simulate form submission
     setTimeout(() => {
       toast({
-        title: "Inscription réussie !",
-        description: "Nous vous contacterons sous 48h pour confirmer votre inscription.",
+        title: t('register.toast.success'),
+        description: t('register.toast.description'),
       });
       navigate('/thanks');
       setIsSubmitting(false);
@@ -242,13 +242,13 @@ export const Register: React.FC = () => {
           </div>
           <div className="flex justify-center mt-6 space-x-2 md:space-x-8">
             <span className={`text-xs md:text-sm text-center ${currentStep >= 1 ? 'text-accent font-medium' : 'text-muted-foreground'}`}>
-              Informations<br className="md:hidden" /> personnelles
+              {t('register.step1.label')}
             </span>
             <span className={`text-xs md:text-sm text-center ${currentStep >= 2 ? 'text-accent font-medium' : 'text-muted-foreground'}`}>
-              Informations<br className="md:hidden" /> professionnelles
+              {t('register.step2.label')}
             </span>
             <span className={`text-xs md:text-sm text-center ${currentStep >= 3 ? 'text-accent font-medium' : 'text-muted-foreground'}`}>
-              Choix de<br className="md:hidden" /> formation
+              {t('register.step3.label')}
             </span>
           </div>
         </div>
@@ -264,20 +264,20 @@ export const Register: React.FC = () => {
                     <User className="h-8 w-8 text-accent" />
                   </div>
                   <h2 className="text-section text-foreground">
-                    Informations Personnelles
+                    {t('register.step1.title')}
                   </h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
-                      Prénom *
+                      {t('register.firstName')} *
                     </label>
                     <Input
                       value={formData.first_name}
                       onChange={(e) => handleChange('first_name', e.target.value)}
                       onBlur={() => handleBlur('first_name')}
-                      placeholder="Votre prénom"
+                      placeholder={t('register.firstName.placeholder')}
                       className={getInputClassName('first_name')}
                       maxLength={100}
                     />
@@ -289,13 +289,13 @@ export const Register: React.FC = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
-                      Nom *
+                      {t('register.lastName')} *
                     </label>
                     <Input
                       value={formData.last_name}
                       onChange={(e) => handleChange('last_name', e.target.value)}
                       onBlur={() => handleBlur('last_name')}
-                      placeholder="Votre nom"
+                      placeholder={t('register.lastName.placeholder')}
                       className={getInputClassName('last_name')}
                       maxLength={100}
                     />
@@ -310,14 +310,14 @@ export const Register: React.FC = () => {
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     <Mail className="h-4 w-4 inline mr-2" />
-                    Email *
+                    {t('register.email')} *
                   </label>
                   <Input
                     type="email"
                     value={formData.email}
                     onChange={(e) => handleChange('email', e.target.value)}
                     onBlur={() => handleBlur('email')}
-                    placeholder="votre.email@exemple.com"
+                    placeholder={t('register.email.placeholder')}
                     className={getInputClassName('email')}
                     maxLength={255}
                   />
@@ -331,14 +331,14 @@ export const Register: React.FC = () => {
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     <Phone className="h-4 w-4 inline mr-2" />
-                    Téléphone *
+                    {t('register.phone')} *
                   </label>
                   <Input
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => handleChange('phone', e.target.value)}
                     onBlur={() => handleBlur('phone')}
-                    placeholder="+225 07 00 00 00 00"
+                    placeholder={t('register.phone.placeholder')}
                     className={getInputClassName('phone')}
                     maxLength={20}
                   />
@@ -359,19 +359,19 @@ export const Register: React.FC = () => {
                     <Building className="h-8 w-8 text-accent" />
                   </div>
                   <h2 className="text-section text-foreground">
-                    Informations Professionnelles
+                    {t('register.step2.title')}
                   </h2>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Entreprise *
+                    {t('register.company')} *
                   </label>
                   <Input
                     value={formData.company}
                     onChange={(e) => handleChange('company', e.target.value)}
                     onBlur={() => handleBlur('company')}
-                    placeholder="Nom de votre entreprise"
+                    placeholder={t('register.company.placeholder')}
                     className={getInputClassName('company')}
                     maxLength={200}
                   />
@@ -384,13 +384,13 @@ export const Register: React.FC = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Poste occupé *
+                    {t('register.position')} *
                   </label>
                   <Input
                     value={formData.position}
                     onChange={(e) => handleChange('position', e.target.value)}
                     onBlur={() => handleBlur('position')}
-                    placeholder="Votre poste actuel"
+                    placeholder={t('register.position.placeholder')}
                     className={getInputClassName('position')}
                     maxLength={100}
                   />
@@ -403,17 +403,17 @@ export const Register: React.FC = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Années d'expérience
+                    {t('register.experience')}
                   </label>
                   <Select onValueChange={(value) => handleChange('experience_level', value)} value={formData.experience_level}>
                     <SelectTrigger className="transition-all duration-300">
-                      <SelectValue placeholder="Sélectionnez votre niveau d'expérience" />
+                      <SelectValue placeholder={t('register.experience.placeholder')} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="0-2">0-2 ans</SelectItem>
-                      <SelectItem value="3-5">3-5 ans</SelectItem>
-                      <SelectItem value="6-10">6-10 ans</SelectItem>
-                      <SelectItem value="10+">Plus de 10 ans</SelectItem>
+                      <SelectItem value="0-2">{t('register.experience.0-2')}</SelectItem>
+                      <SelectItem value="3-5">{t('register.experience.3-5')}</SelectItem>
+                      <SelectItem value="6-10">{t('register.experience.6-10')}</SelectItem>
+                      <SelectItem value="10+">{t('register.experience.10+')}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -428,17 +428,17 @@ export const Register: React.FC = () => {
                     <GraduationCap className="h-8 w-8 text-accent" />
                   </div>
                   <h2 className="text-section text-foreground">
-                    Choix de Formation
+                    {t('register.step3.title')}
                   </h2>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Formation souhaitée *
+                    {t('register.training')} *
                   </label>
                   <Select onValueChange={(value) => handleChange('preferred_training', value)} value={formData.preferred_training}>
                     <SelectTrigger className={errors.preferred_training ? 'border-destructive' : ''}>
-                      <SelectValue placeholder="Choisissez votre formation" />
+                      <SelectValue placeholder={t('register.training.placeholder')} />
                     </SelectTrigger>
                     <SelectContent>
                       {trainings.map((training) => (
@@ -457,7 +457,7 @@ export const Register: React.FC = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Date de début souhaitée *
+                    {t('register.startDate')} *
                   </label>
                   <Input
                     type="date"
@@ -475,18 +475,18 @@ export const Register: React.FC = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Motivation / Objectifs
+                    {t('register.motivation')}
                   </label>
                   <Textarea
                     value={formData.motivation}
                     onChange={(e) => handleChange('motivation', e.target.value)}
-                    placeholder="Décrivez vos objectifs et motivations pour cette formation..."
+                    placeholder={t('register.motivation.placeholder')}
                     rows={4}
                     maxLength={2000}
                     className="transition-all duration-300"
                   />
                   <p className="text-muted-foreground text-xs mt-1 text-right">
-                    {formData.motivation.length}/2000 caractères
+                    {formData.motivation.length}/2000 {t('register.characters')}
                   </p>
                 </div>
 
@@ -494,23 +494,23 @@ export const Register: React.FC = () => {
                 <div className="bg-accent/5 rounded-xl p-6 border border-accent/20">
                   <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
                     <CheckCircle className="h-5 w-5 text-accent" />
-                    Récapitulatif
+                    {t('register.summary')}
                   </h3>
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
-                      <span className="text-muted-foreground">Nom complet:</span>
+                      <span className="text-muted-foreground">{t('register.fullName')}:</span>
                       <p className="font-medium text-foreground">{formData.first_name} {formData.last_name}</p>
                     </div>
                     <div>
-                      <span className="text-muted-foreground">Email:</span>
+                      <span className="text-muted-foreground">{t('register.email')}:</span>
                       <p className="font-medium text-foreground">{formData.email}</p>
                     </div>
                     <div>
-                      <span className="text-muted-foreground">Entreprise:</span>
+                      <span className="text-muted-foreground">{t('register.company')}:</span>
                       <p className="font-medium text-foreground">{formData.company}</p>
                     </div>
                     <div>
-                      <span className="text-muted-foreground">Poste:</span>
+                      <span className="text-muted-foreground">{t('register.position')}:</span>
                       <p className="font-medium text-foreground">{formData.position}</p>
                     </div>
                   </div>
@@ -523,13 +523,13 @@ export const Register: React.FC = () => {
               {currentStep > 1 ? (
                 <Button type="button" variant="outline" onClick={prevStep} className="hover-lift">
                   <ArrowLeft className="mr-2 h-4 w-4" />
-                  Précédent
+                  {t('register.previous')}
                 </Button>
               ) : (
                 <Link to="/training">
                   <Button type="button" variant="outline" className="hover-lift">
                     <ArrowLeft className="mr-2 h-4 w-4" />
-                    Retour aux formations
+                    {t('register.backToTraining')}
                   </Button>
                 </Link>
               )}
@@ -540,7 +540,7 @@ export const Register: React.FC = () => {
                   onClick={nextStep}
                   className="btn-primary hover-lift"
                 >
-                  Suivant
+                  {t('register.next')}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               ) : (
@@ -552,7 +552,7 @@ export const Register: React.FC = () => {
                   {isSubmitting ? (
                     <span className="flex items-center gap-2">
                       <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-                      Inscription en cours...
+                      {t('register.submitting')}
                     </span>
                   ) : (
                     <>
