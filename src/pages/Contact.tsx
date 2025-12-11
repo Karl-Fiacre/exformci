@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Mail, Phone, Clock, Send, CheckCircle } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -14,6 +15,7 @@ import {
 } from "@/components/ui/accordion";
 
 export const Contact: React.FC = () => {
+  const { t } = useLanguage();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -29,8 +31,8 @@ export const Contact: React.FC = () => {
 
     setTimeout(() => {
       toast({
-        title: "Message envoyé",
-        description: "Nous vous répondrons dans les plus brefs délais.",
+        title: t('contact.toast.success'),
+        description: t('contact.toast.description'),
       });
       setFormData({ first_name: '', last_name: '', email: '', message: '' });
       setIsSubmitting(false);
@@ -47,38 +49,38 @@ export const Contact: React.FC = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      title: 'Adresse',
-      details: ['Yopougon – en face du CHU'],
+      title: t('contact.info.address'),
+      details: [t('contact.address')],
     },
     {
       icon: Mail,
-      title: 'Email',
+      title: t('contact.info.email'),
       details: ['info4@gmail.com'],
     },
     {
       icon: Phone,
-      title: 'Téléphone',
+      title: t('contact.info.phone'),
       details: ['+225 07 14 61 34 89', '+225 27 33 74 72 17'],
     },
     {
       icon: Clock,
-      title: 'Horaires',
-      details: ['Lundi - Vendredi: 8h - 18h', 'Samedi: 8h - 13h'],
+      title: t('contact.info.hours'),
+      details: [t('contact.hours.weekday'), t('contact.hours.saturday')],
     },
   ];
 
   const faqs = [
     {
-      question: 'Quels sont vos délais de réponse ?',
-      answer: 'Nous nous engageons à répondre à toute demande dans les 24h ouvrées.'
+      question: t('contact.faq.q1'),
+      answer: t('contact.faq.a1')
     },
     {
-      question: 'Proposez-vous des formations sur site ?',
-      answer: 'Oui, nous pouvons organiser des formations directement dans vos locaux selon vos besoins.'
+      question: t('contact.faq.q2'),
+      answer: t('contact.faq.a2')
     },
     {
-      question: 'Comment obtenir un devis pour une analyse ?',
-      answer: 'Contactez-nous avec les détails de votre besoin, nous vous fournirons un devis gratuit sous 48h.'
+      question: t('contact.faq.q3'),
+      answer: t('contact.faq.a3')
     }
   ];
 
@@ -89,10 +91,10 @@ export const Contact: React.FC = () => {
         <div className="absolute inset-0 bg-pattern-dots opacity-20"></div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            Contactez-nous
+            {t('contact.title')}
           </h1>
           <p className="text-xl text-muted-foreground">
-            Nous sommes à votre écoute pour répondre à toutes vos questions et vous accompagner dans vos projets
+            {t('contact.subtitle')}
           </p>
         </div>
       </section>
@@ -105,14 +107,14 @@ export const Contact: React.FC = () => {
             <div>
               <div className="bg-card rounded-2xl p-8 shadow-lg border border-border/50">
                 <h2 className="text-2xl font-bold text-foreground mb-6 relative">
-                  Envoyez-nous un Message
+                  {t('contact.form.title')}
                   <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-accent to-transparent rounded-full"></div>
                 </h2>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="first_name" className="block text-sm font-medium text-foreground mb-2">
-                      Prénom *
+                      {t('register.firstName')} *
                     </label>
                     <Input
                       id="first_name"
@@ -122,13 +124,13 @@ export const Contact: React.FC = () => {
                       value={formData.first_name}
                       onChange={handleChange}
                       className="w-full"
-                      placeholder="Votre prénom"
+                      placeholder={t('register.firstName.placeholder')}
                     />
                   </div>
 
                   <div>
                     <label htmlFor="last_name" className="block text-sm font-medium text-foreground mb-2">
-                      Nom *
+                      {t('register.lastName')} *
                     </label>
                     <Input
                       id="last_name"
@@ -138,13 +140,13 @@ export const Contact: React.FC = () => {
                       value={formData.last_name}
                       onChange={handleChange}
                       className="w-full"
-                      placeholder="Votre nom"
+                      placeholder={t('register.lastName.placeholder')}
                     />
                   </div>
 
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                      Email
+                      {t('contact.form.email')}
                     </label>
                     <Input
                       id="email"
@@ -153,13 +155,13 @@ export const Contact: React.FC = () => {
                       value={formData.email}
                       onChange={handleChange}
                       className="w-full"
-                      placeholder="votre.email@exemple.com"
+                      placeholder={t('contact.form.email.placeholder')}
                     />
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                      Message
+                      {t('contact.form.message')}
                     </label>
                     <Textarea
                       id="message"
@@ -168,7 +170,7 @@ export const Contact: React.FC = () => {
                       onChange={handleChange}
                       rows={5}
                       className="w-full"
-                      placeholder="Décrivez votre besoin ou votre question..."
+                      placeholder={t('contact.form.message.placeholder')}
                     />
                   </div>
 
@@ -178,10 +180,10 @@ export const Contact: React.FC = () => {
                     className="w-full bg-accent hover:bg-accent/90 text-white py-3 rounded-lg"
                   >
                     {isSubmitting ? (
-                      <span>Envoi en cours...</span>
+                      <span>{t('contact.form.sending')}</span>
                     ) : (
                       <>
-                        Envoyer
+                        {t('contact.form.send')}
                         <Send className="ml-2 h-4 w-4" />
                       </>
                     )}
@@ -193,7 +195,7 @@ export const Contact: React.FC = () => {
             {/* Contact Information */}
             <div>
               <h2 className="text-2xl font-bold text-foreground mb-8">
-                Nos Coordonnées
+                {t('contact.info.title')}
               </h2>
 
               <div className="space-y-6">
@@ -223,13 +225,13 @@ export const Contact: React.FC = () => {
                 <Link to="/training" className="block">
                   <Button variant="outline" className="w-full justify-start border-border/50 hover:bg-accent/5">
                     <CheckCircle className="mr-2 h-4 w-4 text-accent" />
-                    S'inscrire à une formation
+                    {t('contact.quick.training')}
                   </Button>
                 </Link>
                 <Link to="/laboratory" className="block">
                   <Button variant="outline" className="w-full justify-start border-border/50 hover:bg-accent/5">
                     <CheckCircle className="mr-2 h-4 w-4 text-accent" />
-                    Demander une analyse
+                    {t('contact.quick.analysis')}
                   </Button>
                 </Link>
               </div>
@@ -243,10 +245,10 @@ export const Contact: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">
-              Notre Localisation
+              {t('contact.map.title')}
             </h2>
             <p className="text-muted-foreground">
-              Retrouvez-nous facilement à Yopougon, en face du CHU
+              {t('contact.map.subtitle')}
             </p>
           </div>
 
@@ -267,7 +269,7 @@ export const Contact: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground">
-              Questions Fréquentes
+              {t('contact.faq.title')}
             </h2>
           </div>
 
