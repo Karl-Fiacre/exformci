@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MessageCircle, Send, X, Bot } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -13,55 +13,40 @@ interface Message {
 }
 
 export const Chatbot: React.FC = () => {
-  const { language } = useLanguage();
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: 1,
-      text: language === 'fr'
-        ? "Bonjour! Je suis l'assistant virtuel d'EXFORM. Comment puis-je vous aider aujourd'hui?"
-        : "Hello! I'm EXFORM's virtual assistant. How can I help you today?",
-      isBot: true,
-      timestamp: new Date()
-    }
-  ]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
 
-  const predefinedResponses = {
-    fr: {
-      services: "EXFORM offre trois services principaux : Laboratoire d'analyse physico-chimique, Formation continue qualifiante, et BTP & équipements industriels. Voulez-vous en savoir plus sur l'un de ces services ?",
-      laboratory: "Notre laboratoire propose des analyses complètes selon les normes ISO et HACCP. Nous couvrons les analyses d'eau, air, poussière, son et environnement.",
-      training: "Nos formations incluent l'analyse vibratoire, hydraulique, systèmes d'étanchéité, risques liés à l'ammoniac, et bien plus. Souhaitez-vous vous inscrire ?",
-      contact: "Vous pouvez nous contacter à Yopougon en face du CHU, ou utiliser notre formulaire de contact en ligne. Notre équipe vous répondra rapidement.",
-      default: "Je vous remercie pour votre question. Pour des informations détaillées, je vous invite à nous contacter directement ou à consulter nos pages de services."
-    },
-    en: {
-      services: "EXFORM offers three main services: Physico-chemical analysis laboratory, Qualifying continuing education, and Construction & industrial equipment. Would you like to know more about any of these services?",
-      laboratory: "Our laboratory provides comprehensive analyses according to ISO and HACCP standards. We cover water, air, dust, sound and environmental analyses.",
-      training: "Our training includes vibratory analysis, hydraulics, sealing systems, ammonia-related risks, and much more. Would you like to register?",
-      contact: "You can contact us in Yopougon opposite the CHU, or use our online contact form. Our team will respond quickly.",
-      default: "Thank you for your question. For detailed information, I invite you to contact us directly or consult our service pages."
-    }
-  };
+  // Reset messages with correct greeting when language changes or component opens
+  useEffect(() => {
+    setMessages([
+      {
+        id: 1,
+        text: t('chatbot.greeting'),
+        isBot: true,
+        timestamp: new Date()
+      }
+    ]);
+  }, [t]);
 
   const getResponse = (message: string): string => {
     const lowerMessage = message.toLowerCase();
-    const responses = predefinedResponses[language];
 
     if (lowerMessage.includes('service') || lowerMessage.includes('offre')) {
-      return responses.services;
+      return t('chatbot.services');
     }
     if (lowerMessage.includes('laboratoire') || lowerMessage.includes('laboratory') || lowerMessage.includes('analyse')) {
-      return responses.laboratory;
+      return t('chatbot.laboratory');
     }
     if (lowerMessage.includes('formation') || lowerMessage.includes('training') || lowerMessage.includes('cours')) {
-      return responses.training;
+      return t('chatbot.training');
     }
     if (lowerMessage.includes('contact') || lowerMessage.includes('adresse') || lowerMessage.includes('téléphone')) {
-      return responses.contact;
+      return t('chatbot.contact');
     }
 
-    return responses.default;
+    return t('chatbot.default');
   };
 
   const sendMessage = () => {
@@ -121,7 +106,7 @@ export const Chatbot: React.FC = () => {
                   <div>
                     <div className="font-semibold text-sm">Assistant EXFORM</div>
                     <div className="text-xs opacity-80">
-                      {language === 'fr' ? 'En ligne' : 'Online'}
+                      {t('chatbot.online')}
                     </div>
                   </div>
                 </div>
@@ -163,7 +148,7 @@ export const Chatbot: React.FC = () => {
                   value={inputMessage}
                   onChange={(e) => setInputMessage(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder={language === 'fr' ? 'Tapez votre message...' : 'Type your message...'}
+                  placeholder={t('chatbot.placeholder')}
                   className="flex-1 border-0 bg-white/80 focus:ring-2 focus:ring-accent"
                 />
                 <Button
