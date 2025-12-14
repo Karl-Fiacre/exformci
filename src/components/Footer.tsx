@@ -54,7 +54,7 @@ export const Footer: React.FC = () => {
           <div>
             <h3 className="font-semibold text-lg mb-6 flex items-center gap-2">
               <span className="w-8 h-0.5 bg-accent"></span>
-              Navigation
+              {t('footer.navigation')}
             </h3>
             <ul className="space-y-3">
               {quickLinks.map(link => <li key={link.name}>
@@ -128,14 +128,14 @@ export const Footer: React.FC = () => {
         <div className="border-t border-primary-foreground/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-primary-foreground/60">
-              © {new Date().getFullYear()} EXFORM. Tous droits réservés.
+              © {new Date().getFullYear()} EXFORM. {t('footer.copyright')}
             </p>
             <div className="flex items-center gap-6">
               <Link to="/about" className="text-sm text-primary-foreground/60 hover:text-accent transition-colors">
-                Mentions légales
+                {t('footer.legal')}
               </Link>
               <Link to="/contact" className="text-sm text-primary-foreground/60 hover:text-accent transition-colors">
-                Politique de confidentialité
+                {t('footer.privacy')}
               </Link>
             </div>
           </div>

@@ -394,6 +394,27 @@ const translations = {
     // Thanks
     'thanks.title': 'Merci !',
     'thanks.message': 'Nous vous contacterons très bientôt',
+    'thanks.nextSteps': 'Prochaines Étapes',
+    'thanks.step1.title': 'Confirmation sous 48h',
+    'thanks.step1.desc': 'Notre équipe vous contactera pour confirmer votre inscription et les modalités pratiques.',
+    'thanks.step2.title': 'Préparation de la formation',
+    'thanks.step2.desc': 'Réception des documents et du matériel pédagogique avant le début de la formation.',
+    'thanks.step3.title': 'Début de votre formation',
+    'thanks.step3.desc': 'Accompagnement personnalisé tout au long de votre parcours d\'apprentissage.',
+    'thanks.contactQuestion': 'Une question ? Contactez-nous',
+    'thanks.otherTrainings': 'Voir d\'autres formations',
+    'thanks.aboutExform': 'À propos d\'EXFORM',
+    'thanks.aboutExformDesc': 'Découvrez notre histoire et nos valeurs',
+    'thanks.ourServices': 'Nos Services',
+    'thanks.ourServicesDesc': 'Explorez toute notre gamme de services',
+    'thanks.contactUs': 'Nous Contacter',
+    'thanks.contactUsDesc': 'Toutes nos coordonnées et localisation',
+
+    // Footer
+    'footer.navigation': 'Navigation',
+    'footer.copyright': 'Tous droits réservés.',
+    'footer.legal': 'Mentions légales',
+    'footer.privacy': 'Politique de confidentialité',
 
     // Common
     'common.learnMore': 'En savoir plus',
@@ -787,6 +808,27 @@ const translations = {
     // Thanks
     'thanks.title': 'Thank you!',
     'thanks.message': 'We will contact you shortly',
+    'thanks.nextSteps': 'Next Steps',
+    'thanks.step1.title': 'Confirmation within 48h',
+    'thanks.step1.desc': 'Our team will contact you to confirm your registration and practical arrangements.',
+    'thanks.step2.title': 'Training preparation',
+    'thanks.step2.desc': 'Receive documents and teaching materials before the training begins.',
+    'thanks.step3.title': 'Start of your training',
+    'thanks.step3.desc': 'Personalized support throughout your learning journey.',
+    'thanks.contactQuestion': 'Any questions? Contact us',
+    'thanks.otherTrainings': 'See other trainings',
+    'thanks.aboutExform': 'About EXFORM',
+    'thanks.aboutExformDesc': 'Discover our history and values',
+    'thanks.ourServices': 'Our Services',
+    'thanks.ourServicesDesc': 'Explore our full range of services',
+    'thanks.contactUs': 'Contact Us',
+    'thanks.contactUsDesc': 'All our contact details and location',
+
+    // Footer
+    'footer.navigation': 'Navigation',
+    'footer.copyright': 'All rights reserved.',
+    'footer.legal': 'Legal notice',
+    'footer.privacy': 'Privacy policy',
 
     // Common
     'common.learnMore': 'Learn more',
