@@ -416,6 +416,20 @@ const translations = {
     'footer.legal': 'Mentions légales',
     'footer.privacy': 'Politique de confidentialité',
 
+    // Chatbot
+    'chatbot.greeting': 'Bonjour! Je suis l\'assistant virtuel d\'EXFORM. Comment puis-je vous aider aujourd\'hui?',
+    'chatbot.online': 'En ligne',
+    'chatbot.placeholder': 'Tapez votre message...',
+    'chatbot.services': 'EXFORM offre trois services principaux : Laboratoire d\'analyse physico-chimique, Formation continue qualifiante, et BTP & équipements industriels. Voulez-vous en savoir plus sur l\'un de ces services ?',
+    'chatbot.laboratory': 'Notre laboratoire propose des analyses complètes selon les normes ISO et HACCP. Nous couvrons les analyses d\'eau, air, poussière, son et environnement.',
+    'chatbot.training': 'Nos formations incluent l\'analyse vibratoire, hydraulique, systèmes d\'étanchéité, risques liés à l\'ammoniac, et bien plus. Souhaitez-vous vous inscrire ?',
+    'chatbot.contact': 'Vous pouvez nous contacter à Yopougon en face du CHU, ou utiliser notre formulaire de contact en ligne. Notre équipe vous répondra rapidement.',
+    'chatbot.default': 'Je vous remercie pour votre question. Pour des informations détaillées, je vous invite à nous contacter directement ou à consulter nos pages de services.',
+
+    // WhatsApp
+    'whatsapp.title': 'Contactez-nous sur WhatsApp',
+    'whatsapp.message': 'Bonjour, je vous contacte depuis votre site web EXFORM. J\'aimerais avoir des informations sur vos services.',
+
     // Common
     'common.learnMore': 'En savoir plus',
     'common.backHome': 'Retour à l\'accueil',
@@ -829,6 +843,20 @@ const translations = {
     'footer.copyright': 'All rights reserved.',
     'footer.legal': 'Legal notice',
     'footer.privacy': 'Privacy policy',
+
+    // Chatbot
+    'chatbot.greeting': 'Hello! I\'m EXFORM\'s virtual assistant. How can I help you today?',
+    'chatbot.online': 'Online',
+    'chatbot.placeholder': 'Type your message...',
+    'chatbot.services': 'EXFORM offers three main services: Physico-chemical analysis laboratory, Qualifying continuing education, and Construction & industrial equipment. Would you like to know more about any of these services?',
+    'chatbot.laboratory': 'Our laboratory provides comprehensive analyses according to ISO and HACCP standards. We cover water, air, dust, sound and environmental analyses.',
+    'chatbot.training': 'Our training includes vibratory analysis, hydraulics, sealing systems, ammonia-related risks, and much more. Would you like to register?',
+    'chatbot.contact': 'You can contact us in Yopougon opposite the CHU, or use our online contact form. Our team will respond quickly.',
+    'chatbot.default': 'Thank you for your question. For detailed information, I invite you to contact us directly or consult our service pages.',
+
+    // WhatsApp
+    'whatsapp.title': 'Contact us on WhatsApp',
+    'whatsapp.message': 'Hello, I\'m contacting you from your EXFORM website. I would like to have information about your services.',
 
     // Common
     'common.learnMore': 'Learn more',

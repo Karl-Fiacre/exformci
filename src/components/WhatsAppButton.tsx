@@ -3,13 +3,11 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export const WhatsAppButton: React.FC = () => {
-  const { language } = useLanguage();
+  const { t } = useLanguage();
 
   const phoneNumber = "2250714613489"; // Numéro WhatsApp EXFORM
 
-  const message = language === 'fr'
-    ? "Bonjour, je vous contacte depuis votre site web EXFORM. J'aimerais avoir des informations sur vos services."
-    : "Hello, I'm contacting you from your EXFORM website. I would like to have information about your services.";
+  const message = t('whatsapp.message');
 
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
@@ -22,7 +20,7 @@ export const WhatsAppButton: React.FC = () => {
       onClick={openWhatsApp}
       className="fixed bottom-6 left-6 z-50 h-14 w-14 rounded-full bg-green-500 hover:bg-green-600 shadow-2xl animate-pulse"
       size="icon"
-      title={language === 'fr' ? 'Contactez-nous sur WhatsApp' : 'Contact us on WhatsApp'}
+      title={t('whatsapp.title')}
     >
       <svg
         viewBox="0 0 24 24"
