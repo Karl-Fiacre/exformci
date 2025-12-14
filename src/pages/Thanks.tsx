@@ -82,7 +82,7 @@ export const Thanks: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/">
               <Button className="btn-hero">
-                {t('common.back_home')}
+                {t('common.backHome')}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
