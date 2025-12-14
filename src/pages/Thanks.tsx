@@ -28,7 +28,7 @@ export const Thanks: React.FC = () => {
           {/* Additional Information */}
           <div className="bg-muted/50 rounded-xl p-6 mb-8 text-left">
             <h3 className="text-card-title text-card-foreground mb-4 text-center">
-              Prochaines Étapes
+              {t('thanks.nextSteps')}
             </h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
@@ -36,8 +36,8 @@ export const Thanks: React.FC = () => {
                   1
                 </div>
                 <div>
-                  <p className="text-body text-foreground font-medium">Confirmation sous 48h</p>
-                  <p className="text-caption">Notre équipe vous contactera pour confirmer votre inscription et les modalités pratiques.</p>
+                  <p className="text-body text-foreground font-medium">{t('thanks.step1.title')}</p>
+                  <p className="text-caption">{t('thanks.step1.desc')}</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
@@ -45,8 +45,8 @@ export const Thanks: React.FC = () => {
                   2
                 </div>
                 <div>
-                  <p className="text-body text-foreground font-medium">Préparation de la formation</p>
-                  <p className="text-caption">Réception des documents et du matériel pédagogique avant le début de la formation.</p>
+                  <p className="text-body text-foreground font-medium">{t('thanks.step2.title')}</p>
+                  <p className="text-caption">{t('thanks.step2.desc')}</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
@@ -54,8 +54,8 @@ export const Thanks: React.FC = () => {
                   3
                 </div>
                 <div>
-                  <p className="text-body text-foreground font-medium">Début de votre formation</p>
-                  <p className="text-caption">Accompagnement personnalisé tout au long de votre parcours d'apprentissage.</p>
+                  <p className="text-body text-foreground font-medium">{t('thanks.step3.title')}</p>
+                  <p className="text-caption">{t('thanks.step3.desc')}</p>
                 </div>
               </div>
             </div>
@@ -64,7 +64,7 @@ export const Thanks: React.FC = () => {
           {/* Contact Information */}
           <div className="mb-8">
             <h3 className="text-card-title text-card-foreground mb-4">
-              Une question ? Contactez-nous
+              {t('thanks.contactQuestion')}
             </h3>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <div className="flex items-center justify-center space-x-2 text-muted-foreground">
@@ -73,7 +73,7 @@ export const Thanks: React.FC = () => {
               </div>
               <div className="flex items-center justify-center space-x-2 text-muted-foreground">
                 <Phone className="h-4 w-4" />
-                <span className="text-sm">+225 07 07 00 00 00</span>
+                <span className="text-sm">+225 07 14 61 34 89</span>
               </div>
             </div>
           </div>
@@ -88,7 +88,7 @@ export const Thanks: React.FC = () => {
             </Link>
             <Link to="/training">
               <Button variant="outline">
-                Voir d'autres formations
+                {t('thanks.otherTrainings')}
               </Button>
             </Link>
           </div>
@@ -97,16 +97,16 @@ export const Thanks: React.FC = () => {
         {/* Additional Resources */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
           <Link to="/about" className="card-elevated text-center hover:scale-105 transition-transform">
-            <h4 className="text-card-title text-card-foreground mb-2">À propos d'EXFORM</h4>
-            <p className="text-caption">Découvrez notre histoire et nos valeurs</p>
+            <h4 className="text-card-title text-card-foreground mb-2">{t('thanks.aboutExform')}</h4>
+            <p className="text-caption">{t('thanks.aboutExformDesc')}</p>
           </Link>
           <Link to="/services" className="card-elevated text-center hover:scale-105 transition-transform">
-            <h4 className="text-card-title text-card-foreground mb-2">Nos Services</h4>
-            <p className="text-caption">Explorez toute notre gamme de services</p>
+            <h4 className="text-card-title text-card-foreground mb-2">{t('thanks.ourServices')}</h4>
+            <p className="text-caption">{t('thanks.ourServicesDesc')}</p>
           </Link>
           <Link to="/contact" className="card-elevated text-center hover:scale-105 transition-transform">
-            <h4 className="text-card-title text-card-foreground mb-2">Nous Contacter</h4>
-            <p className="text-caption">Toutes nos coordonnées et localisation</p>
+            <h4 className="text-card-title text-card-foreground mb-2">{t('thanks.contactUs')}</h4>
+            <p className="text-caption">{t('thanks.contactUsDesc')}</p>
           </Link>
         </div>
       </div>
