@@ -3,9 +3,11 @@ import { CheckCircle, ArrowRight, Mail, Phone } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { useSEO } from '@/hooks/useSEO';
 
 export const Thanks: React.FC = () => {
   const { t } = useLanguage();
+  useSEO('thanks');
 
   return (
     <div className="min-h-screen pt-20 flex items-center justify-center gradient-surface">

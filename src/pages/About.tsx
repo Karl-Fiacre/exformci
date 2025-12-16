@@ -4,9 +4,11 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { AnimatedCounter } from '@/components/AnimatedCounter';
+import { useSEO } from '@/hooks/useSEO';
 
 export const About: React.FC = () => {
   const { t } = useLanguage();
+  useSEO('about');
 
   const values = [
     {

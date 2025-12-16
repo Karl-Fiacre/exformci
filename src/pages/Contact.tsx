@@ -7,6 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Link } from 'react-router-dom';
 import MapboxMap from '@/components/MapboxMap';
+import { useSEO } from '@/hooks/useSEO';
 import {
   Accordion,
   AccordionContent,
@@ -16,6 +17,7 @@ import {
 
 export const Contact: React.FC = () => {
   const { t } = useLanguage();
+  useSEO('contact');
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({

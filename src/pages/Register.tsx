@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useToast } from '@/hooks/use-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { z } from 'zod';
+import { useSEO } from '@/hooks/useSEO';
 
 // Validation schemas
 const step1Schema = z.object({
@@ -35,6 +36,7 @@ type FormErrors = {
 
 export const Register: React.FC = () => {
   const { t } = useLanguage();
+  useSEO('register');
   const { toast } = useToast();
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);

@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { AnimatedCounter } from '@/components/AnimatedCounter';
+import { useSEO } from '@/hooks/useSEO';
 
 export const Home: React.FC = () => {
   const { t } = useLanguage();
+  useSEO('home');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const stats = [
@@ -17,20 +19,20 @@ export const Home: React.FC = () => {
 
   const services = [
     {
-      title: t('services.laboratory'),
-      description: t('services.laboratory.desc'),
+      title: t('services.laboratory.title'),
+      description: t('services.laboratory.description'),
       image: '/images/laboratory-hero.jpg',
       link: '/laboratory',
     },
     {
-      title: t('services.construction'),
-      description: t('services.construction.desc'),
+      title: t('services.construction.title'),
+      description: t('services.construction.description'),
       image: '/images/construction-hero.jpg',
       link: '/services',
     },
     {
-      title: t('services.training'),
-      description: t('services.training.desc'),
+      title: t('services.training.title'),
+      description: t('services.training.description'),
       image: '/images/training-hero.jpg',
       link: '/training',
     },
@@ -174,7 +176,7 @@ export const Home: React.FC = () => {
                     to={service.link}
                     className="inline-flex items-center text-accent font-semibold hover:gap-3 gap-2 transition-all duration-300"
                   >
-                    {t('common.learn_more')}
+                    {t('common.learnMore')}
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>

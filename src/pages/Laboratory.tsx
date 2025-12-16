@@ -3,9 +3,11 @@ import { FlaskConical, Award, Shield, Microscope, ArrowRight, CheckCircle, Targe
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useSEO } from '@/hooks/useSEO';
 
 export const Laboratory: React.FC = () => {
   const { t } = useLanguage();
+  useSEO('laboratory');
 
   const services = [
     {

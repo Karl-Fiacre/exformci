@@ -436,6 +436,24 @@ const translations = {
     'common.servicesBadge': 'Nos Services',
     'common.contact': 'Contact',
     'common.contactUs': 'Contactez-nous',
+
+    // SEO
+    'seo.home.title': 'EXFORM - Expertise Technique & Formation aux Métiers | Côte d\'Ivoire',
+    'seo.home.description': 'EXFORM, leader en expertise technique et formation professionnelle en Côte d\'Ivoire. Laboratoire d\'analyse physico-chimique certifié ISO, formations continues qualifiantes.',
+    'seo.about.title': 'À Propos d\'EXFORM | Notre Histoire et Nos Valeurs',
+    'seo.about.description': 'Découvrez l\'histoire d\'EXFORM, notre mission, notre vision et nos valeurs. Plus de 15 ans d\'expérience en expertise technique et formation en Côte d\'Ivoire.',
+    'seo.services.title': 'Nos Services | Laboratoire, BTP, Maintenance Industrielle - EXFORM',
+    'seo.services.description': 'Découvrez nos services : laboratoire d\'analyse physico-chimique, BTP et équipements industriels, maintenance des brûleurs. Solutions techniques complètes.',
+    'seo.laboratory.title': 'Laboratoire d\'Analyse Physico-Chimique | EXFORM Côte d\'Ivoire',
+    'seo.laboratory.description': 'Laboratoire certifié ISO et HACCP. Analyses physico-chimiques, contrôle qualité alimentaire, analyses environnementales de haute précision.',
+    'seo.training.title': 'Formations Professionnelles Certifiantes | EXFORM',
+    'seo.training.description': 'Formations continues qualifiantes : analyse vibratoire, hydraulique, ammoniac, management. Formateurs experts et certifications reconnues.',
+    'seo.contact.title': 'Contactez EXFORM | Devis Gratuit et Informations',
+    'seo.contact.description': 'Contactez EXFORM à Abidjan, Yopougon. Demandez un devis gratuit pour nos services de laboratoire, formation et maintenance industrielle.',
+    'seo.register.title': 'Inscription Formation | EXFORM',
+    'seo.register.description': 'Inscrivez-vous à nos formations professionnelles certifiantes. Développez vos compétences avec les experts d\'EXFORM.',
+    'seo.thanks.title': 'Merci pour votre inscription | EXFORM',
+    'seo.thanks.description': 'Votre inscription a été enregistrée. Notre équipe vous contactera sous 48h pour confirmer les détails.',
   },
   en: {
     // Navigation
@@ -864,6 +882,24 @@ const translations = {
     'common.servicesBadge': 'Our Services',
     'common.contact': 'Contact',
     'common.contactUs': 'Contact us',
+
+    // SEO
+    'seo.home.title': 'EXFORM - Technical Expertise & Professional Training | Ivory Coast',
+    'seo.home.description': 'EXFORM, leader in technical expertise and professional training in Ivory Coast. ISO certified physico-chemical analysis laboratory, qualifying continuing education.',
+    'seo.about.title': 'About EXFORM | Our Story and Values',
+    'seo.about.description': 'Discover EXFORM\'s story, our mission, vision and values. Over 15 years of experience in technical expertise and training in Ivory Coast.',
+    'seo.services.title': 'Our Services | Laboratory, Construction, Industrial Maintenance - EXFORM',
+    'seo.services.description': 'Discover our services: physico-chemical analysis laboratory, construction and industrial equipment, burner maintenance. Complete technical solutions.',
+    'seo.laboratory.title': 'Physico-Chemical Analysis Laboratory | EXFORM Ivory Coast',
+    'seo.laboratory.description': 'ISO and HACCP certified laboratory. Physico-chemical analyses, food quality control, high-precision environmental analyses.',
+    'seo.training.title': 'Certified Professional Training | EXFORM',
+    'seo.training.description': 'Qualifying continuing education: vibration analysis, hydraulics, ammonia, management. Expert trainers and recognized certifications.',
+    'seo.contact.title': 'Contact EXFORM | Free Quote and Information',
+    'seo.contact.description': 'Contact EXFORM in Abidjan, Yopougon. Request a free quote for our laboratory, training and industrial maintenance services.',
+    'seo.register.title': 'Training Registration | EXFORM',
+    'seo.register.description': 'Register for our certified professional training. Develop your skills with EXFORM experts.',
+    'seo.thanks.title': 'Thank you for your registration | EXFORM',
+    'seo.thanks.description': 'Your registration has been recorded. Our team will contact you within 48 hours to confirm the details.',
   },
 };
 
