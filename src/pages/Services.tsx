@@ -3,6 +3,7 @@ import { FlaskConical, HardHat, GraduationCap, Wrench, ArrowRight, CheckCircle }
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useSEO } from '@/hooks/useSEO';
 import {
   Carousel,
   CarouselContent,
@@ -13,6 +14,7 @@ import {
 
 export const Services: React.FC = () => {
   const { t } = useLanguage();
+  useSEO('services');
 
   const mainServices = [
     {
