@@ -47,6 +47,11 @@ const seoConfigs: Record<string, SEOConfig> = {
     titleKey: 'seo.thanks.title',
     descriptionKey: 'seo.thanks.description',
     path: '/thanks'
+  },
+  notfound: {
+    titleKey: 'seo.notfound.title',
+    descriptionKey: 'seo.notfound.description',
+    path: '/404'
   }
 };
 

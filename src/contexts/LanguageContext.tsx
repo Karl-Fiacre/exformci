@@ -454,6 +454,15 @@ const translations = {
     'seo.register.description': 'Inscrivez-vous à nos formations professionnelles certifiantes. Développez vos compétences avec les experts d\'EXFORM.',
     'seo.thanks.title': 'Merci pour votre inscription | EXFORM',
     'seo.thanks.description': 'Votre inscription a été enregistrée. Notre équipe vous contactera sous 48h pour confirmer les détails.',
+    'seo.notfound.title': 'Page Non Trouvée | EXFORM',
+    'seo.notfound.description': 'La page que vous recherchez n\'existe pas. Retournez à l\'accueil pour explorer nos services.',
+
+    // 404 Page
+    'notfound.title': 'Page non trouvée',
+    'notfound.description': 'Désolé, la page que vous recherchez n\'existe pas ou a été déplacée. Vérifiez l\'URL ou retournez à l\'accueil.',
+    'notfound.home': 'Retour à l\'accueil',
+    'notfound.contact': 'Nous contacter',
+    'notfound.suggestions': 'Pages qui pourraient vous intéresser :',
   },
   en: {
     // Navigation
@@ -900,6 +909,15 @@ const translations = {
     'seo.register.description': 'Register for our certified professional training. Develop your skills with EXFORM experts.',
     'seo.thanks.title': 'Thank you for your registration | EXFORM',
     'seo.thanks.description': 'Your registration has been recorded. Our team will contact you within 48 hours to confirm the details.',
+    'seo.notfound.title': 'Page Not Found | EXFORM',
+    'seo.notfound.description': 'The page you are looking for does not exist. Return to home to explore our services.',
+
+    // 404 Page
+    'notfound.title': 'Page not found',
+    'notfound.description': 'Sorry, the page you are looking for does not exist or has been moved. Check the URL or return to the homepage.',
+    'notfound.home': 'Back to home',
+    'notfound.contact': 'Contact us',
+    'notfound.suggestions': 'Pages that might interest you:',
   },
 };
 
