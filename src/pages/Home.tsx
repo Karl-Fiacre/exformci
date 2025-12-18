@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { AnimatedCounter } from '@/components/AnimatedCounter';
+import { OptimizedImage } from '@/components/OptimizedImage';
 import { useSEO } from '@/hooks/useSEO';
 
 export const Home: React.FC = () => {
@@ -158,7 +159,7 @@ export const Home: React.FC = () => {
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 <div className="relative h-56 overflow-hidden">
-                  <img 
+                  <OptimizedImage 
                     src={service.image} 
                     alt={service.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -220,7 +221,7 @@ export const Home: React.FC = () => {
             </div>
             <div className="relative animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
               <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <img 
+                <OptimizedImage 
                   src="/images/laboratory-hero.jpg" 
                   alt="EXFORM Laboratory"
                   className="w-full h-96 object-cover"

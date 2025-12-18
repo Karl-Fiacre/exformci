@@ -4,6 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { AnimatedCounter } from '@/components/AnimatedCounter';
+import { OptimizedImage } from '@/components/OptimizedImage';
 import { useSEO } from '@/hooks/useSEO';
 
 export const About: React.FC = () => {
@@ -210,7 +211,7 @@ export const About: React.FC = () => {
             ].map((member, index) => (
               <div key={index} className="bg-white rounded-2xl p-6 shadow-lg text-center fade-in hover:scale-105 transition-all duration-300 group" style={{animationDelay: `${index * 0.1}s`}}>
                 <div className="relative mb-6">
-                  <img 
+                  <OptimizedImage 
                     src={member.image} 
                     alt={member.name}
                     className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-accent/20 group-hover:border-accent transition-colors duration-300"

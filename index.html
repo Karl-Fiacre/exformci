@@ -15,15 +15,29 @@
     <meta property="og:description" content="Excellence, Innovation et Professionnalisme au service de votre développement. Laboratoire certifié, formations qualifiantes, BTP et maintenance industrielle." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://exform.ci/" />
-    <meta property="og:image" content="/images/hero-bg.jpg" />
+    <meta property="og:image" content="https://exform.ci/images/hero-bg.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="EXFORM - Expertise Technique et Formation Professionnelle" />
     <meta property="og:locale" content="fr_CI" />
+    <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:site_name" content="EXFORM" />
 
-    <!-- Twitter -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@exform_ci" />
+    <meta name="twitter:creator" content="@exform_ci" />
     <meta name="twitter:title" content="EXFORM - Expertise Technique & Formation aux Métiers" />
     <meta name="twitter:description" content="Excellence, Innovation et Professionnalisme au service de votre développement en Côte d'Ivoire." />
-    <meta name="twitter:image" content="/images/hero-bg.jpg" />
+    <meta name="twitter:image" content="https://exform.ci/images/hero-bg.jpg" />
+    <meta name="twitter:image:alt" content="EXFORM - Expertise Technique et Formation Professionnelle" />
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#1e3a5f" />
+    <meta name="msapplication-TileColor" content="#1e3a5f" />
+    <link rel="alternate" hreflang="fr" href="https://exform.ci/" />
+    <link rel="alternate" hreflang="en" href="https://exform.ci/?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://exform.ci/" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -33,7 +47,8 @@
       "name": "EXFORM",
       "alternateName": "Expertise & Formation",
       "url": "https://exform.ci",
-      "logo": "/images/logo-exform.png",
+      "logo": "https://exform.ci/images/logo-exform.png",
+      "image": "https://exform.ci/images/hero-bg.jpg",
       "description": "EXFORM - Leader en expertise technique et formation professionnelle en Côte d'Ivoire",
       "address": {
         "@type": "PostalAddress",
@@ -45,9 +60,41 @@
         "@type": "ContactPoint",
         "telephone": "+225-07-14-61-34-89",
         "email": "info@exform.ci",
-        "contactType": "customer service"
+        "contactType": "customer service",
+        "availableLanguage": ["French", "English"]
       },
-      "sameAs": []
+      "sameAs": [],
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "knowsAbout": ["Laboratory Analysis", "Professional Training", "Construction", "Industrial Equipment"]
+    }
+    </script>
+
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "EXFORM",
+      "image": "https://exform.ci/images/hero-bg.jpg",
+      "@id": "https://exform.ci",
+      "url": "https://exform.ci",
+      "telephone": "+225-07-14-61-34-89",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Yopougon - en face du CHU",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      }
     }
     </script>
   </head>
