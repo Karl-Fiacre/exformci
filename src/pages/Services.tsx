@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useSEO } from '@/hooks/useSEO';
+import { OptimizedImage } from '@/components/OptimizedImage';
 import {
   Carousel,
   CarouselContent,
@@ -169,7 +170,7 @@ export const Services: React.FC = () => {
 
                 <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
                   <div className="relative">
-                    <img
+                    <OptimizedImage
                       src={service.image}
                       alt={service.title}
                       className="w-full h-80 md:h-96 object-cover rounded-2xl shadow-xl"
@@ -200,7 +201,7 @@ export const Services: React.FC = () => {
                 {burnerImages.map((image, index) => (
                   <CarouselItem key={index}>
                     <div className="relative rounded-2xl overflow-hidden">
-                      <img
+                      <OptimizedImage
                         src={image.src}
                         alt={image.alt}
                         className="w-full h-[400px] md:h-[500px] object-cover"

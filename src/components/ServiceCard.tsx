@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { OptimizedImage } from '@/components/OptimizedImage';
 
 interface ServiceCardProps {
   title: string;
@@ -23,7 +24,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
   return (
     <div className={`card-service group ${className}`}>
       <div className="aspect-video mb-6 rounded-xl overflow-hidden">
-        <img
+        <OptimizedImage
           src={image}
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"

@@ -3,6 +3,7 @@ import { GraduationCap, Users, Clock, Award, ArrowRight, CheckCircle } from 'luc
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { OptimizedImage } from '@/components/OptimizedImage';
 import { useSEO } from '@/hooks/useSEO';
 
 export const Training: React.FC = () => {
@@ -149,7 +150,7 @@ export const Training: React.FC = () => {
 
             <div className="fade-in">
               <div className="relative">
-                <img alt={t('training.title')} className="w-full h-96 object-cover rounded-2xl shadow-lg" src="/lovable-uploads/6152f8a4-f940-40c3-9c06-1dfa59cd9ff1.jpg" />
+                <OptimizedImage alt={t('training.title')} className="w-full h-96 object-cover rounded-2xl shadow-lg" src="/lovable-uploads/6152f8a4-f940-40c3-9c06-1dfa59cd9ff1.jpg" />
                 <div className="absolute inset-0 gradient-hero opacity-10 rounded-2xl"></div>
               </div>
             </div>

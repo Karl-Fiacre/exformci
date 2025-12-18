@@ -3,6 +3,7 @@ import { FlaskConical, Award, Shield, Microscope, ArrowRight, CheckCircle, Targe
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { OptimizedImage } from '@/components/OptimizedImage';
 import { useSEO } from '@/hooks/useSEO';
 
 export const Laboratory: React.FC = () => {
@@ -151,7 +152,7 @@ export const Laboratory: React.FC = () => {
 
             <div className="relative">
               <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-                <img alt={t('laboratory.title')} className="w-full h-[500px] object-cover" src="/lovable-uploads/ff209731-f3ad-4d7b-92d4-2cf33cf9f770.jpg" />
+                <OptimizedImage alt={t('laboratory.title')} className="w-full h-[500px] object-cover" src="/lovable-uploads/ff209731-f3ad-4d7b-92d4-2cf33cf9f770.jpg" />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
                 <div className="absolute bottom-8 left-8 right-8">
                   <div className="bg-white/10 backdrop-blur-md text-white p-6 rounded-xl border border-white/20">
