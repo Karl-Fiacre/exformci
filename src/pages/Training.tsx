@@ -178,10 +178,10 @@ export const Training: React.FC = () => {
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 <div className="flex items-center justify-between mb-6">
-                  <span className="px-4 py-2 bg-gradient-accent text-white text-sm font-medium rounded-full shadow-lg animate-pulse">
+                  <span className="px-4 py-2 bg-primary text-primary-foreground text-sm font-semibold rounded-full shadow-md">
                     {training.level}
                   </span>
-                  <span className="text-sm text-muted-foreground font-semibold bg-accent/10 px-3 py-1 rounded-full">
+                  <span className="text-sm text-foreground font-semibold bg-accent/20 px-3 py-1 rounded-full border border-accent/30">
                     {training.duration}
                   </span>
                 </div>
