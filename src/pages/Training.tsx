@@ -230,9 +230,9 @@ export const Training: React.FC = () => {
                 </div>
 
                 <Link to="/register">
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 hover:shadow-lg hover:shadow-primary/30 py-3 rounded-xl font-semibold transition-all duration-300">
+                  <Button className="w-full bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground hover:scale-110 hover:shadow-xl hover:shadow-accent/40 py-3 rounded-xl font-semibold transition-all duration-300 hover:-translate-y-1">
                     {t('training.register')}
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
               </div>
