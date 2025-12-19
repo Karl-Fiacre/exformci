@@ -174,7 +174,7 @@ export const Training: React.FC = () => {
             {trainings.map((training, index) => (
               <div
                 key={index}
-                className="glass-card p-8 rounded-3xl hover:glow-effect transform hover:scale-105 transition-all duration-700 group bounce-in animate-shimmer"
+                className="bg-card p-8 rounded-3xl border-2 border-primary/30 shadow-xl shadow-primary/10 hover:shadow-2xl hover:shadow-accent/20 hover:border-accent/50 transform hover:scale-105 transition-all duration-500 group"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 <div className="flex items-center justify-between mb-6">
