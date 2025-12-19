@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Users, Clock, Award, ArrowRight, CheckCircle, Activity, Droplets, Snowflake, Filter, Gauge, Briefcase, type LucideIcon } from 'lucide-react';
+import { GraduationCap, Users, Clock, Award, ArrowRight, CheckCircle, Activity, Droplets, Snowflake, Filter, Gauge, Briefcase, HelpCircle, type LucideIcon } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -301,6 +301,49 @@ export const Training: React.FC = () => {
                   {process.description}
                 </p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-card">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6">
+              <HelpCircle className="w-5 h-5 text-primary" />
+              <span className="text-primary font-semibold">FAQ</span>
+            </div>
+            <h2 className="text-section text-foreground mb-6">
+              {t('training.faq.title')}
+            </h2>
+            <p className="text-body text-muted-foreground max-w-2xl mx-auto">
+              {t('training.faq.subtitle')}
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              { q: t('training.faq.q1'), a: t('training.faq.a1') },
+              { q: t('training.faq.q2'), a: t('training.faq.a2') },
+              { q: t('training.faq.q3'), a: t('training.faq.a3') },
+              { q: t('training.faq.q4'), a: t('training.faq.a4') },
+              { q: t('training.faq.q5'), a: t('training.faq.a5') },
+            ].map((faq, index) => (
+              <details
+                key={index}
+                className="group bg-background border-2 border-border rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-300"
+              >
+                <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
+                  <span className="text-foreground font-semibold text-lg pr-4">{faq.q}</span>
+                  <span className="flex-shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform duration-300">
+                    <ArrowRight className="w-4 h-4 text-primary rotate-90" />
+                  </span>
+                </summary>
+                <div className="px-6 pb-6 pt-0">
+                  <p className="text-muted-foreground leading-relaxed">{faq.a}</p>
+                </div>
+              </details>
             ))}
           </div>
         </div>
