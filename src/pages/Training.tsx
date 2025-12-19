@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Users, Clock, Award, ArrowRight, CheckCircle } from 'lucide-react';
+import { GraduationCap, Users, Clock, Award, ArrowRight, CheckCircle, Activity, Droplets, Snowflake, Filter, Gauge, Briefcase, type LucideIcon } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -10,12 +10,14 @@ export const Training: React.FC = () => {
   const { t } = useLanguage();
   useSEO('training');
 
-  const trainings = [
+  const trainings: { title: string; duration: string; level: string; description: string; icon: LucideIcon; color: string; features: string[] }[] = [
     {
       title: t('training.vibration'),
       duration: t('training.duration.3days'),
       level: t('training.level.intermediate'),
       description: t('training.vibrationDesc'),
+      icon: Activity,
+      color: 'from-blue-500 to-cyan-500',
       features: [
         t('training.vibrationFeature1'),
         t('training.vibrationFeature2'),
@@ -28,6 +30,8 @@ export const Training: React.FC = () => {
       duration: t('training.duration.5days'),
       level: t('training.level.all'),
       description: t('training.hydraulicsDesc'),
+      icon: Droplets,
+      color: 'from-sky-500 to-blue-600',
       features: [
         t('training.hydraulicsFeature1'),
         t('training.hydraulicsFeature2'),
@@ -40,6 +44,8 @@ export const Training: React.FC = () => {
       duration: t('training.duration.2days'),
       level: t('training.level.specialized'),
       description: t('training.ammoniaDesc'),
+      icon: Snowflake,
+      color: 'from-teal-400 to-emerald-500',
       features: [
         t('training.ammoniaFeature1'),
         t('training.ammoniaFeature2'),
@@ -52,6 +58,8 @@ export const Training: React.FC = () => {
       duration: t('training.duration.3days'),
       level: t('training.level.technical'),
       description: t('training.filtrationDesc'),
+      icon: Filter,
+      color: 'from-purple-500 to-indigo-600',
       features: [
         t('training.filtrationFeature1'),
         t('training.filtrationFeature2'),
@@ -64,6 +72,8 @@ export const Training: React.FC = () => {
       duration: t('training.duration.4days'),
       level: t('training.level.advanced'),
       description: t('training.pressureDesc'),
+      icon: Gauge,
+      color: 'from-orange-500 to-red-500',
       features: [
         t('training.pressureFeature1'),
         t('training.pressureFeature2'),
@@ -76,6 +86,8 @@ export const Training: React.FC = () => {
       duration: t('training.duration.2days'),
       level: t('training.level.management'),
       description: t('training.managementDesc'),
+      icon: Briefcase,
+      color: 'from-amber-500 to-yellow-500',
       features: [
         t('training.managementFeature1'),
         t('training.managementFeature2'),
@@ -174,10 +186,20 @@ export const Training: React.FC = () => {
             {trainings.map((training, index) => (
               <div
                 key={index}
-                className="bg-card p-8 rounded-3xl border-2 border-primary/30 shadow-xl shadow-primary/10 hover:shadow-2xl hover:shadow-accent/20 hover:border-accent/50 transform hover:scale-105 transition-all duration-500 group"
+                className="relative bg-card p-8 rounded-3xl border-2 border-primary/30 shadow-xl shadow-primary/10 hover:shadow-2xl hover:shadow-accent/20 hover:border-accent/50 transform hover:scale-105 transition-all duration-500 group overflow-hidden"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
-                <div className="flex items-center justify-between mb-6">
+                {/* Shine effect on hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                </div>
+
+                {/* Icon */}
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${training.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <training.icon className="w-8 h-8 text-white" />
+                </div>
+
+                <div className="flex items-center justify-between mb-4">
                   <span className="px-4 py-2 bg-primary text-primary-foreground text-sm font-semibold rounded-full shadow-md">
                     {training.level}
                   </span>
@@ -186,7 +208,7 @@ export const Training: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="text-card-title text-card-foreground mb-6 group-hover:text-accent transition-colors duration-300 font-bold text-xl">
+                <h3 className="text-card-title text-card-foreground mb-4 group-hover:text-accent transition-colors duration-300 font-bold text-xl">
                   {training.title}
                 </h3>
 
