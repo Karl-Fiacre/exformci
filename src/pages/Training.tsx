@@ -230,7 +230,7 @@ export const Training: React.FC = () => {
                 </div>
 
                 <Link to="/register">
-                  <Button className="w-full bg-gradient-accent text-white hover:scale-105 hover:shadow-lg hover:shadow-accent/20 py-3 rounded-xl font-semibold transition-all duration-300 animate-pulse-glow">
+                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 hover:shadow-lg hover:shadow-primary/30 py-3 rounded-xl font-semibold transition-all duration-300">
                     {t('training.register')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
