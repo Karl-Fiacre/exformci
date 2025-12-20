@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Users, Clock, Award, ArrowRight, CheckCircle, Activity, Droplets, Snowflake, Filter, Gauge, Briefcase, HelpCircle, type LucideIcon } from 'lucide-react';
+import { GraduationCap, Users, Clock, Award, ArrowRight, CheckCircle, Activity, Droplets, Snowflake, Filter, Gauge, Briefcase, HelpCircle, Calendar, MapPin, type LucideIcon } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -306,8 +306,73 @@ export const Training: React.FC = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Calendar Section */}
       <section className="py-20 bg-card">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full mb-6">
+              <Calendar className="w-5 h-5 text-accent" />
+              <span className="text-accent font-semibold">{t('training.calendar.badge')}</span>
+            </div>
+            <h2 className="text-section text-foreground mb-6">
+              {t('training.calendar.title')}
+            </h2>
+            <p className="text-body text-muted-foreground max-w-2xl mx-auto">
+              {t('training.calendar.subtitle')}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { training: t('training.vibration'), date: '15-17 Jan 2025', location: 'Abidjan', spots: 8 },
+              { training: t('training.hydraulics'), date: '20-24 Jan 2025', location: 'Abidjan', spots: 6 },
+              { training: t('training.ammonia'), date: '03-04 Fév 2025', location: 'Abidjan', spots: 10 },
+              { training: t('training.filtration'), date: '10-12 Fév 2025', location: 'Abidjan', spots: 12 },
+              { training: t('training.pressure'), date: '17-20 Fév 2025', location: 'Abidjan', spots: 5 },
+              { training: t('training.management'), date: '24-25 Fév 2025', location: 'Abidjan', spots: 15 },
+            ].map((session, index) => (
+              <div
+                key={index}
+                className="bg-background border-2 border-border rounded-2xl p-6 hover:border-accent/50 hover:shadow-lg transition-all duration-300 group"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                    <Calendar className="w-6 h-6 text-accent" />
+                  </div>
+                  <span className="px-3 py-1 bg-green-100 text-green-700 text-sm font-medium rounded-full">
+                    {session.spots} {t('training.calendar.spots')}
+                  </span>
+                </div>
+                
+                <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-accent transition-colors">
+                  {session.training}
+                </h3>
+                
+                <div className="space-y-2 mb-4">
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Clock className="w-4 h-4" />
+                    <span className="text-sm">{session.date}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <MapPin className="w-4 h-4" />
+                    <span className="text-sm">{session.location}</span>
+                  </div>
+                </div>
+
+                <Link to="/register">
+                  <Button className="w-full bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300">
+                    {t('training.calendar.book')}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 gradient-surface">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 fade-in">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6">

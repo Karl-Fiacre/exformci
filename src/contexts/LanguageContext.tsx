@@ -213,6 +213,11 @@ const translations = {
     'training.faq.a4': 'Nous acceptons les virements bancaires, les chèques et les paiements en espèces. Des facilités de paiement peuvent être accordées sur demande. Les entreprises peuvent également bénéficier de la prise en charge par leur OPCO.',
     'training.faq.q5': "Comment se déroule l'inscription ?",
     'training.faq.a5': "L'inscription se fait en ligne via notre formulaire ou par téléphone. Après validation de votre dossier, vous recevrez une confirmation avec tous les détails pratiques de la formation.",
+    'training.calendar.badge': 'Calendrier',
+    'training.calendar.title': 'Prochaines Sessions',
+    'training.calendar.subtitle': 'Consultez les dates de nos prochaines formations et réservez votre place',
+    'training.calendar.spots': 'places',
+    'training.calendar.book': 'Réserver',
 
     // Laboratory
     'laboratory.title': 'Laboratoire d\'Analyse',
@@ -680,6 +685,11 @@ const translations = {
     'training.faq.a4': 'We accept bank transfers, checks and cash payments. Payment facilities can be granted upon request. Companies can also benefit from coverage by their training fund.',
     'training.faq.q5': 'How does registration work?',
     'training.faq.a5': 'Registration is done online via our form or by phone. After validation of your file, you will receive a confirmation with all the practical details of the training.',
+    'training.calendar.badge': 'Calendar',
+    'training.calendar.title': 'Upcoming Sessions',
+    'training.calendar.subtitle': 'Check the dates of our upcoming training sessions and book your spot',
+    'training.calendar.spots': 'spots',
+    'training.calendar.book': 'Book Now',
 
     // Laboratory
     'laboratory.title': 'Analysis Laboratory',
