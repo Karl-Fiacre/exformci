@@ -431,7 +431,7 @@ export const Training: React.FC = () => {
               </Button>
             </Link>
             <Link to="/contact">
-              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
+              <Button variant="outlineLight" className="px-8 py-3 text-lg rounded-xl">
                 {t('training.cta.info')}
               </Button>
             </Link>
