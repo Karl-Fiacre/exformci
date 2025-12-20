@@ -348,8 +348,8 @@ const Index = () => {
             <Link to="/training">
               <Button 
                 size="lg" 
-                variant="outline"
-                className="border-2 border-white bg-white/10 text-white hover:bg-white hover:text-primary px-8 py-6 text-lg rounded-xl backdrop-blur-sm"
+                variant="outlineLight"
+                className="px-8 py-6 text-lg rounded-xl"
               >
                 Voir nos formations
               </Button>
