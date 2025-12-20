@@ -349,7 +349,7 @@ const Index = () => {
               <Button 
                 size="lg" 
                 variant="outline"
-                className="border-2 border-white/50 text-white hover:bg-white/10 px-8 py-6 text-lg rounded-xl"
+                className="border-2 border-white bg-white/10 text-white hover:bg-white hover:text-primary px-8 py-6 text-lg rounded-xl backdrop-blur-sm"
               >
                 Voir nos formations
               </Button>
