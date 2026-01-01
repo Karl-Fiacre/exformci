@@ -6,6 +6,7 @@ import { Footer } from '@/components/Footer';
 import { AnimatedCounter } from '@/components/AnimatedCounter';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { ScrollReveal, StaggerContainer } from '@/components/ScrollReveal';
 
 const Index = () => {
   const { t } = useLanguage();
@@ -79,37 +80,43 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
+        {/* Background Image with Parallax Effect */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
           style={{ backgroundImage: 'url(/images/hero-bg.jpg)' }}
         >
-          <div className="absolute inset-0 bg-primary/50" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/50 to-primary-dark/70" />
+        </div>
+
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-accent/20 rounded-full blur-2xl animate-float-subtle" />
+          <div className="absolute bottom-40 right-20 w-48 h-48 bg-accent/15 rounded-full blur-3xl animate-float-subtle" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-1/3 right-1/4 w-24 h-24 bg-white/10 rounded-full blur-xl animate-float-subtle" style={{ animationDelay: '1s' }} />
         </div>
 
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in-up leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-blur-in leading-tight">
             Expertise Technique & Formation aux Métiers
           </h1>
-          <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10 animate-fade-in-up stagger-2">
             Excellence, Innovation et Professionnalisme au service de votre développement
           </p>
           <Link to="/services">
             <Button 
               size="lg" 
-              className="bg-accent hover:bg-accent-light text-accent-foreground px-8 py-4 text-base rounded-full shadow-lg shadow-accent/30 animate-fade-in-up group"
-              style={{ animationDelay: '0.4s' }}
+              className="bg-accent hover:bg-accent-light text-accent-foreground px-8 py-4 text-base rounded-full shadow-lg shadow-accent/30 animate-fade-in-up stagger-3 group btn-magnetic ripple-effect"
             >
               Découvrir nos services
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-2" />
             </Button>
           </Link>
 
           {/* Scroll Indicator */}
           <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-gentle">
-            <div className="w-8 h-14 border-2 border-white/40 rounded-full flex justify-center pt-2">
-              <div className="w-1 h-3 bg-white/60 rounded-full" />
+            <div className="w-8 h-14 border-2 border-white/40 rounded-full flex justify-center pt-2 backdrop-blur-sm">
+              <div className="w-1 h-3 bg-white/60 rounded-full animate-float-subtle" />
             </div>
           </div>
         </div>
@@ -118,32 +125,33 @@ const Index = () => {
       {/* Stats Section */}
       <section className="py-16 bg-white relative z-10 -mt-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-border/50">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {stats.map((stat, index) => (
-                <div 
-                  key={index} 
-                  className="text-center group animate-fade-in-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-accent/10 text-accent mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <stat.icon className="h-8 w-8" />
+          <ScrollReveal animation="zoom-in" duration={800}>
+            <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-border/50 card-3d">
+              <StaggerContainer staggerDelay={150} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {stats.map((stat, index) => (
+                  <div 
+                    key={index} 
+                    className="text-center group"
+                  >
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-accent/10 text-accent mb-4 group-hover:scale-110 group-hover:bg-accent/20 transition-all duration-300 icon-glow">
+                      <stat.icon className="h-8 w-8" />
+                    </div>
+                    <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
+                      <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+                    </div>
+                    <p className="text-muted-foreground font-medium">{stat.label}</p>
                   </div>
-                  <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
-                    <AnimatedCounter end={stat.value} suffix={stat.suffix} />
-                  </div>
-                  <p className="text-muted-foreground font-medium">{stat.label}</p>
-                </div>
-              ))}
+                ))}
+              </StaggerContainer>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Services Section */}
       <section className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <ScrollReveal animation="fade-up" className="text-center mb-16">
             <p className="text-accent font-semibold mb-2">Nos Services</p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Découvrez nos services de pointe
@@ -151,14 +159,13 @@ const Index = () => {
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Découvrez notre gamme complète de services techniques et de formations professionnelles
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <StaggerContainer staggerDelay={200} className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div 
                 key={index}
-                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.15}s` }}
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 card-3d"
               >
                 <div className="relative h-56 overflow-hidden">
                   <img 
@@ -166,10 +173,10 @@ const Index = () => {
                     alt={service.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors">
+                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
                     {service.title}
                   </h3>
                   <p className="text-muted-foreground mb-4">
@@ -177,61 +184,62 @@ const Index = () => {
                   </p>
                   <Link 
                     to={service.link}
-                    className="inline-flex items-center text-accent font-semibold hover:gap-3 gap-2 transition-all duration-300"
+                    className="inline-flex items-center text-accent font-semibold gap-2 transition-all duration-300 link-underline"
                   >
                     En savoir plus
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
                 </div>
               </div>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in-up">
+            <ScrollReveal animation="fade-right" duration={700}>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
                 Pourquoi Choisir EXFORM ?
               </h2>
               <p className="text-muted-foreground text-lg mb-8">
                 Avec plus de 15 ans d'expérience, EXFORM s'impose comme le partenaire de référence pour vos besoins en expertise technique et formation professionnelle.
               </p>
-              <div className="space-y-4 mb-8">
+              <StaggerContainer staggerDelay={100} className="space-y-4 mb-8">
                 {whyChooseUs.map((item, index) => (
                   <div 
                     key={index} 
-                    className="flex items-center gap-3 animate-fade-in-up"
-                    style={{ animationDelay: `${index * 0.1}s` }}
+                    className="flex items-center gap-3 group"
                   >
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/40 transition-colors duration-300">
                       <CheckCircle className="h-4 w-4 text-accent" />
                     </div>
-                    <span className="text-foreground">{item}</span>
+                    <span className="text-foreground group-hover:text-accent transition-colors duration-300">{item}</span>
                   </div>
                 ))}
-              </div>
+              </StaggerContainer>
               <Link to="/about">
-                <Button className="bg-primary hover:bg-primary-light text-primary-foreground">
+                <Button className="bg-primary hover:bg-primary-light text-primary-foreground btn-magnetic ripple-effect group">
                   Contactez-nous
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
               </Link>
-            </div>
-            <div className="relative animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-              <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  src="/images/laboratory-hero.jpg" 
-                  alt="EXFORM Laboratory"
-                  className="w-full h-96 object-cover"
-                />
+            </ScrollReveal>
+            <ScrollReveal animation="fade-left" duration={700} delay={200}>
+              <div className="relative">
+                <div className="rounded-2xl overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+                  <img 
+                    src="/images/laboratory-hero.jpg" 
+                    alt="EXFORM Laboratory"
+                    className="w-full h-96 object-cover"
+                  />
+                </div>
+                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-accent/20 rounded-2xl -z-10 animate-float-subtle" />
+                <div className="absolute -top-6 -right-6 w-24 h-24 bg-primary/10 rounded-full -z-10 animate-float-subtle" style={{ animationDelay: '1s' }} />
               </div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-accent/20 rounded-2xl -z-10" />
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-primary/10 rounded-full -z-10" />
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -239,14 +247,14 @@ const Index = () => {
       {/* Partners Section */}
       <section className="py-20 bg-muted/30 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <ScrollReveal animation="fade-up" className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Nos Partenaires de Confiance
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Nous collaborons avec les leaders de l'industrie pour vous offrir les meilleures solutions
             </p>
-          </div>
+          </ScrollReveal>
 
           {/* Infinite Scroll Carousel */}
           <div className="relative">
@@ -257,7 +265,7 @@ const Index = () => {
               {[...partners, ...partners].map((partner, index) => (
                 <div 
                   key={index}
-                  className="flex-shrink-0 mx-4 px-8 py-6 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                  className="flex-shrink-0 mx-4 px-8 py-6 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:scale-105"
                 >
                   <span className="text-lg font-semibold text-foreground whitespace-nowrap">{partner}</span>
                 </div>
@@ -270,91 +278,91 @@ const Index = () => {
       {/* FAQ Section */}
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <ScrollReveal animation="fade-up" className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Questions Fréquemment Posées
             </h2>
             <p className="text-muted-foreground">
               Trouvez rapidement des réponses à vos questions
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="space-y-4">
+          <StaggerContainer staggerDelay={100} className="space-y-4">
             {faqs.map((faq, index) => (
               <div 
                 key={index}
-                className="bg-muted/30 rounded-2xl overflow-hidden animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="bg-muted/30 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-md"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  className="w-full flex items-center justify-between p-6 text-left hover:bg-muted/50 transition-colors"
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-muted/50 transition-colors duration-300"
                 >
                   <h3 className="text-lg font-semibold text-foreground pr-4">
                     {faq.question}
                   </h3>
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">
-                    {openFaq === index ? (
-                      <ChevronUp className="h-5 w-5 text-accent" />
-                    ) : (
-                      <ChevronDown className="h-5 w-5 text-accent" />
-                    )}
+                  <div className={`flex-shrink-0 w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center transition-all duration-300 ${openFaq === index ? 'bg-accent/40 rotate-180' : ''}`}>
+                    <ChevronDown className="h-5 w-5 text-accent" />
                   </div>
                 </button>
-                {openFaq === index && (
-                  <div className="px-6 pb-6 animate-fade-in">
+                <div 
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+                >
+                  <div className="px-6 pb-6">
                     <p className="text-muted-foreground">{faq.answer}</p>
                   </div>
-                )}
+                </div>
               </div>
             ))}
-          </div>
+          </StaggerContainer>
 
-          <div className="text-center mt-10">
+          <ScrollReveal animation="fade-up" delay={300} className="text-center mt-10">
             <p className="text-muted-foreground mb-4">Vous avez d'autres questions ?</p>
             <Link to="/contact">
-              <Button variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
+              <Button variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground btn-magnetic">
                 <MessageCircle className="mr-2 h-4 w-4" />
                 Contact
               </Button>
             </Link>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary via-primary-dark to-primary relative overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute top-0 left-0 w-64 h-64 bg-accent/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full translate-x-1/3 translate-y-1/3" />
+        {/* Animated Decorative Elements */}
+        <div className="absolute top-0 left-0 w-64 h-64 bg-accent/10 rounded-full -translate-x-1/2 -translate-y-1/2 animate-float-subtle" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full translate-x-1/3 translate-y-1/3 animate-float-subtle" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-white/5 rounded-full animate-float-subtle" style={{ animationDelay: '1s' }} />
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Prêt à Développer Vos Compétences ?
-          </h2>
-          <p className="text-white/80 text-lg mb-10 max-w-2xl mx-auto">
-            Contactez-nous dès aujourd'hui pour discuter de vos besoins en formation et expertise technique
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact">
-              <Button 
-                size="lg" 
-                className="bg-accent hover:bg-accent-light text-accent-foreground px-8 py-6 text-lg rounded-xl shadow-accent"
-              >
-                Nous contacter
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link to="/training">
-              <Button 
-                size="lg" 
-                variant="outlineLight"
-                className="px-8 py-6 text-lg rounded-xl"
-              >
-                Voir nos formations
-              </Button>
-            </Link>
-          </div>
+          <ScrollReveal animation="zoom-in" duration={600}>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Prêt à Développer Vos Compétences ?
+            </h2>
+            <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto">
+              Contactez-nous dès aujourd'hui pour discuter de vos besoins en formation et expertise technique
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/contact">
+                <Button 
+                  size="lg" 
+                  className="bg-accent hover:bg-accent-light text-accent-foreground px-8 py-6 text-lg rounded-xl shadow-accent btn-magnetic group"
+                >
+                  Nous contacter
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </Button>
+              </Link>
+              <Link to="/training">
+                <Button 
+                  size="lg" 
+                  variant="outlineLight"
+                  className="px-8 py-6 text-lg rounded-xl btn-magnetic"
+                >
+                  Voir nos formations
+                </Button>
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
